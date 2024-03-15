@@ -5,10 +5,16 @@
 	top: 0;
 	left: 0;
 	position: fixed;
+	transform: translateY(-100%);
 	z-index: 100;
 	width: 100%;
 	background-color: rgba(255, 255, 255, .8);
 	backdrop-filter: blur(34px);
+	transition: all .4s linear;
+	&.show {
+		transform: translateY(0);
+		z-index: 300;
+	}
 	&:before {
 		content: "";
 		width: 100%;
@@ -50,7 +56,7 @@
 		border-radius: 4.882812vw;
 		padding: 1.09375vw 2vw;
 		text-align: center;
-		transition: all .2s linear;
+		transition: all .4s linear;
 		@media(min-width: 1081px) {
 			&:hover {
 				//border: 1px solid $bl;
@@ -70,12 +76,12 @@
 		font-weight: 500;
 		color: $wh;
 		line-height: 1.1;
-		transition: all .3s linear;
+		transition: all .4s linear;
 		position: relative;
 		span {
 			&:first-child {
 				display: block;
-				transition: all .3s linear;
+				transition: all .4s linear;
 				padding: 0px 4.0625vw;
 			}
 			&:nth-child(2) {
@@ -92,7 +98,7 @@
 				transform: translateY(-50%);
 				z-index: 1;
 				opacity: 0;
-				transition: all .3s linear;
+				transition: all .4s linear;
 			}
 		}
 		svg {
@@ -101,7 +107,7 @@
 			height: 0.507812vw;
 			stroke: $bl;
 			transform: translateX(-7px);
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 		&:hover {
 			@media(min-width: 1180px) {
@@ -193,7 +199,7 @@
 			color: $bl;
 			line-height: 1.4;
 			text-decoration: underline;
-			transition: all .2s linear;
+			transition: all .4s linear;
 		}
 	}
 	&__mail {
@@ -291,12 +297,12 @@
 		font-weight: 500;
 		color: $bl;
 		line-height: 1.1;
-		transition: all .3s linear;
+		transition: all .4s linear;
 		position: relative;
 		span {
 			&:first-child {
 				display: block;
-				transition: all .3s linear;
+				transition: all .4s linear;
 				padding: 0px 4.0625vw;
 			}
 			&:nth-child(2) {
@@ -313,7 +319,7 @@
 				transform: translateY(-50%);
 				z-index: 1;
 				opacity: 0;
-				transition: all .3s linear;
+				transition: all .4s linear;
 			}
 		}
 		svg {
@@ -322,7 +328,7 @@
 			height: 0.507812vw;
 			stroke: $yellow;
 			transform: translateX(-7px);
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 		&:hover {
 			@media(min-width: 1180px) {
@@ -343,10 +349,11 @@
 	&__copyright {
 		display: flex;
 		justify-content: space-between;
-		span {
+		span, a {
 			font-family: $ff;
 			font-size: 0.859375vw;
 			font-weight: 400;
+			color: $bl;
 			line-height: 1.4;
 		}
 	}

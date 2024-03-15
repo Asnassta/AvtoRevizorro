@@ -52,11 +52,13 @@ $(document).ready(function() {
   $(".cars__btn").on("click", function(event) {
     event.preventDefault();
       $(this).parents(".cars__item").find(".cars__equipment").fadeToggle();
+      $(this).parents(".cars").find(".slider-arrows").addClass('min');
   });
 
   $(".cars__equipment .btn-plus").on("click", function(event) {
     event.preventDefault();
-      $(this).parents(".cars__equipment").fadeToggle();
+      $(".cars__equipment").fadeOut();
+      $(this).parents(".cars").find(".slider-arrows").removeClass('min');
   });
 
   $(".cars__play").on("click", function(event) {
@@ -64,6 +66,22 @@ $(document).ready(function() {
       $(this).next().fadeToggle();
   });
   /*========/cars=========*/
+
+/*=========Scrollpage (header show)=====*/
+var scrollPos = 0;
+$(window).scroll(function() {
+ 
+  var st = $(this).scrollTop();
+  if (st > scrollPos){
+    $(".header.show .nav").slideUp();
+    //$(".burger").removeClass('active');
+    $(".header").removeClass('show');
+  } else {
+    $(".header").addClass('show');
+  }
+  scrollPos = st;
+});
+/*=========/scrollpage (header show)=====*/
 
     /*=========Smooth scroll=============*/
   $("[data-scroll]").on("click", function(event) {
@@ -75,7 +93,7 @@ $(document).ready(function() {
  
     $("html, body").animate ({
       scrollTop: blockOffset - 160
-    }, 500);
+    }, 2000);
   });
 /*=========/smooth scroll=============*/
 

@@ -106,7 +106,7 @@ body.hidden {
 	background: $grad-bl;
 	border-radius: 2.5vw;
 	padding: 0.78125vw 0.78125vw 0.78125vw 1.5625vw;
-	transition: all .2s linear;
+	transition: all .4s linear;
 	position: relative;
 	z-index: 1;
 	&:after {
@@ -121,7 +121,7 @@ body.hidden {
 		transform: translate(0, -50%);
 		z-index: 2;
 		visibility: hidden;
-		transition: all .3s linear;
+		transition: all .4s linear;
 	}
 	span {
 		position: relative;
@@ -133,7 +133,7 @@ body.hidden {
 			color: $wh;
 			line-height: 1.4;
 			margin-right: 10px;
-			transition: all .2s linear;
+			transition: all .4s linear;
 		}
 		&:nth-child(2) {
 			display: flex;
@@ -144,7 +144,7 @@ body.hidden {
 			height: 2.5vw;
 			border-radius: 50%;
 			background: $yellow;
-			transition: all .2s linear;
+			transition: all .4s linear;
 		}
 	}
 	svg {
@@ -261,7 +261,7 @@ body.hidden {
 		height: 0;
 		border-radius: 50%;
 		background: $grad-bl;
-		transition: all .3s linear;
+		transition: all .4s linear;
 		@include center-pos;
 		z-index: -1;
 	}
@@ -303,7 +303,7 @@ body.hidden {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		transition: all .3s linear;
+		transition: all .4s linear;
 	}
 	&:hover {
 		svg {
@@ -380,7 +380,7 @@ body.hidden {
 				top: 0;
 				left: 0;
 				opacity: 0;
-				transition: all .3s linear;
+				transition: all .4s linear;
 			}
 		}
 		.swiper-slide-thumb-active {
@@ -430,7 +430,7 @@ body.hidden {
 		stroke: $bl;
 		width: 8.007812vw;
 		height: 1.992188vw;
-		transition: all .2s linear;
+		transition: all .3s linear;
 	}
 	&_next {
 		svg {
@@ -548,6 +548,30 @@ body.hidden {
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
 	  	animation-delay: 5s;
+	  	&:before {
+	  		content: "";
+	  		width: 1.145833vw;
+	  		height: 1.145833vw;
+	  		background: url("../images/moon.png") center no-repeat;
+	  		background-size: contain;
+	  		position: absolute;
+	  		bottom: -0.374583vw;
+	  		left: 0.374583vw;
+	  		z-index: 1;
+	  		transform: translate(-100%, 0);
+	  	}
+	  	&:after {
+	  		content: "";
+	  		width: 1.145833vw;
+	  		height: 1.145833vw;
+	  		background: url("../images/moon.png") center no-repeat;
+	  		background-size: contain;
+	  		position: absolute;
+	  		top: -0.78125vw;
+	  		right: 0.78125vw;
+	  		z-index: 1;
+	  		transform: translate(100%, 0);
+	  	}
 	}
 }
 /*============/intro=============*/
@@ -672,7 +696,7 @@ body.hidden {
 	padding: 0.78125vw 1.005859vw 0.78125vw 1.25vw;
 	display: inline-block;
 	z-index: 1;
-	transition: all .3s linear;
+	transition: all .4s linear;
 	&:after {
 		content: "";
 		width: 2.604167vw;
@@ -796,7 +820,7 @@ body.hidden {
 			font-weight: 500;
 			color: $bl;
 			line-height: 1.1;
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 	}
 	&__icon {
@@ -811,7 +835,7 @@ body.hidden {
 			top: 0;
 			left: 0;
 			z-index: 1;
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 		&:after {
 			transform: rotate(90deg);
@@ -841,7 +865,7 @@ body.hidden {
 		font-weight: 400;
 		color: $bl;
 		line-height: 1.6;
-		transition: all .3s linear;
+		transition: all .4s linear;
 		span {
 			font-weight: 500;
 		}
@@ -861,7 +885,7 @@ body.hidden {
 				top: 0.885417vw;
 				left: 0;
 				z-index: 1;
-				transition: all .3s linear;
+				transition: all .4s linear;
 			}
 		}
 	}
@@ -872,7 +896,7 @@ body.hidden {
 		z-index: -1;
 		width: 100%;
 		height: 100%;
-		transition: all .3s linear;
+		transition: all .4s linear;
 		opacity: 0;
 		* {
 			width: 100%;
@@ -923,7 +947,7 @@ body.hidden {
 		z-index: 3;
 		img {
 			width: 6.5625vw;
-			transition: all .3s linear;
+			transition: all .4s linear;
 			&:nth-child(2) {
 				position: absolute;
 				top: 0;
@@ -979,13 +1003,13 @@ body.hidden {
 		z-index: 1;
 		&:before {
 			content: "";
-			width: 0;
+			width: 100%;
 			height: 0;
 			background: $grad-yellow;
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
+			bottom: 0;
+			left: 0;
+			//transform: translate(-50%, -50%);
 			z-index: -1;
 			transition: all .3s linear;
 			border-radius: $b-r;
@@ -1053,17 +1077,44 @@ body.hidden {
 		position: absolute;
 		top: 50%;
 		z-index: 10;
-		transition: all .2s linear;
+		transition: all .3s linear;
 		&_prev {
 			left: 0;
 			transform: translate(-50%, -50%);
+			&-min {
+				display: none;
+				left: 1px;
+				transform: translate(-100%, -50%);
+				svg {
+					width: 4.1vw;
+				}
+			}
 		}
 		&_next {
 			right: 0;
 			transform: translate(50%, -50%);
+			&-min {
+				display: none;
+				right: 1px;
+				transform: translate(100%, -50%);
+				svg {
+					width: 4.1vw;
+				}
+			}
 		}
 		&.swiper-button-disabled {
 			opacity: 0;
+		}
+	}
+	.slider-arrows {
+		&.min {
+			.slider-arrow {
+				display: none;
+			}
+			.slider-arrow_prev-min, 
+			.slider-arrow_next-min {
+				display: block;
+			}
 		}
 	}
 	&__header {
@@ -1160,7 +1211,7 @@ body.hidden {
 			right: 20px;
 			z-index: -1;
 			visibility: hidden;
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 		span {
 			&:first-child {
@@ -1184,7 +1235,7 @@ body.hidden {
 			width: 0.625vw;
 			height: 0.625vw;
 			fill: $bl;
-			transition: all .2s linear;
+			transition: all .4s linear;
 		}
 		&:hover {
 			@media(min-width: 1025px) {
@@ -1233,7 +1284,7 @@ body.hidden {
 			height: 0.859375vw;
 			position: relative;
 			z-index: 2;
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 		&:before {
 			content: "";
@@ -1245,7 +1296,7 @@ body.hidden {
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			transition: all .3s linear;
+			transition: all .4s linear;
 		}
 		&:hover {
 			svg {
@@ -1505,7 +1556,7 @@ body.hidden {
 	&__sum {
 		font-family: $ff;
 		font-size: 2.9832vw;
-		font-weight: 400;
+		font-weight: 500;
 		color: $bl;
 		line-height: .82;
 		&-desc {
@@ -1514,6 +1565,7 @@ body.hidden {
 			font-weight: 400;
 			color: $bl;
 			line-height: .82;
+			margin-top: 5px;
 		}
 	}
 }
@@ -1654,7 +1706,7 @@ body.hidden {
 		border: 1px solid $bl;
 		width: 62.5%;
 		overflow: hidden;
-		transition: all .2s linear;
+		transition: all .4s linear;
 	}
 	&__info {
 		width: calc(44% + 12vw);
@@ -1793,9 +1845,9 @@ body.hidden {
 /*===========Adaptive============*/
 @media(min-width: 2560px) {
 	.container {
-		max-width: 2520px;
+		max-width: 98.4375vw;
 		&_min {
-			max-width: 2104px;
+			max-width: 82.1875vw;
 		}
 	}
 }
