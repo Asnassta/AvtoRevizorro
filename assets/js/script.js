@@ -1,101 +1,51 @@
+function tabs(n)
+{
+  $('.tabs-nav a').removeClass('active');
+  $('.tabs-nav a.t'+n).addClass('active');
+  $('.tabs-block').fadeOut(0);
+  $('.tabs-block.tab_'+n).fadeIn(222);
+};
+
 $(document).ready(function() {
-	/*========Mobile-menu=========*/
-  $(".header__burger").on("click", function(event) {
+
+/*========mobile-menu=========*/
+  $(".burger").on("click", function(event) {
     event.preventDefault();
-      $(".header__menu").addClass('show'); 
+      $(".mobile-menu").toggleClass('show'); 
       $('body').addClass('hidden'); 
   });
-  $(".header__close").on("click", function(event) {
-    event.preventDefault();
-      $(".header__menu").removeClass('show'); 
-      $('body').removeClass('hidden'); 
+
+  $(".mobile-menu__close").on("click", function() {
+      $(".mobile-menu").removeClass('show');
+      $('body').removeClass('hidden');   
+  });
+  $(".mobile-menu__bg").on("click", function() {
+      $(".mobile-menu").removeClass('show');
+      $('body').removeClass('hidden');   
   });
   /*========/mobile-menu=========*/
 
-  /*==========Quote (animate)==========*/
-  (function(elements) {
-  var i = -1;
-  if (!elements.length) {
-    return false;
+  /*============FixedHeader========*/
+  let header = $(".header");
+  let headerH = $(".header").innerHeight();
+  let scrollOffset = $(window).scrollTop();
+
+  checkScroll(scrollOffset);
+
+  $(window).on("scroll", function() {
+    scrollOffset = $(this).scrollTop();
+
+    checkScroll(scrollOffset);
+  })
+
+  function checkScroll(scrollOffset) {
+    if( scrollOffset >= headerH ) {
+      header.addClass("fixed");
+    } else {
+      header.removeClass("fixed");
+    }
   }
-  function step() {
-    elements.eq(i).hide();
-    if (++i >= elements.length) {
-      i = 0;
-    };
-    elements.eq(i).fadeIn();
-    setTimeout(step, 2500);
-  }
-  step();
-}($('#general_process').children()));
-  /*==========/quote (animate)==========*/
-
-  /*========FAQ=========*/
-  $(".faq_main .faq__question").on("click", function(event) {
-    event.preventDefault();
-      $(this).next().slideToggle(); 
-      $(this).parent().parent().toggleClass('active');
-      $(".faq_main .faq__question").not(this).next().slideUp();  
-      $(".faq_main .faq__question").not(this).parent().parent().removeClass('active');  
-  });
-
-  $(".faq_qa .faq__question").on("click", function(event) {
-    event.preventDefault();
-      $(this).next().slideToggle(); 
-      $(this).parent().parent().toggleClass('active');
-      $(".faq_qa .faq__question").not(this).next().slideUp();  
-      $(".faq_qa .faq__question").not(this).parent().parent().removeClass('active');  
-  });
-  /*========/FAQ=========*/
-
-  /*========Cars=========*/
-  $(".cars__btn").on("click", function(event) {
-    event.preventDefault();
-      $(this).parents(".cars__item").find(".cars__equipment").fadeToggle();
-      $(this).parents(".cars").find(".slider-arrows").addClass('min');
-  });
-
-  $(".cars__equipment .btn-plus").on("click", function(event) {
-    event.preventDefault();
-      $(".cars__equipment").fadeOut();
-      $(this).parents(".cars").find(".slider-arrows").removeClass('min');
-  });
-
-  $(".cars__play").on("click", function(event) {
-    event.preventDefault();
-      $(this).next().fadeToggle();
-  });
-  /*========/cars=========*/
-
-/*=========Scrollpage (header show)=====*/
-var scrollPos = 0;
-$(window).scroll(function() {
- 
-  var st = $(this).scrollTop();
-  if (st > scrollPos){
-    $(".header.show .nav").slideUp();
-    //$(".burger").removeClass('active');
-    $(".header").removeClass('show');
-  } else {
-    $(".header").addClass('show');
-  }
-  scrollPos = st;
-});
-/*=========/scrollpage (header show)=====*/
-
-    /*=========Smooth scroll=============*/
-  $("[data-scroll]").on("click", function(event) {
-  event.preventDefault();
- 
-      blockID = $(this).data('scroll');
-     
-      blockOffset = $('#'+blockID).offset().top;
- 
-    $("html, body").animate ({
-      scrollTop: blockOffset - 160
-    }, 2000);
-  });
-/*=========/smooth scroll=============*/
+  /*============/fixedHeader========*/
 
   /*===============Popup=================*/
     $(".open-popup").on("click", function (event) {
@@ -104,34 +54,6 @@ $(window).scroll(function() {
         $(".popup."+name_pop).fadeIn(111);
         $(".popup."+name_pop+" .popup__inner").fadeIn(111);
         $('body').addClass("hidden");
-
-        /*========Page-slider========*/
-		  new Swiper('.page-slider-main', {
-		    slidesPerView: 1,
-		    loop: true,
-		    navigation: {
-		      nextEl: '.slider-arrow_next',
-		      prevEl: '.slider-arrow_prev',
-		    },
-		    thumbs: {
-		      swiper: {
-		        el: '.page-slider-min',
-		        loop: true,
-		        slidesPerView: 8,
-		        spaceBetween: 20,
-		        breakpoints: {
-		          320: {
-		            spaceBetween: 4,
-		          },
-		          993: {
-		            spaceBetween: 16,
-		          },
-		        },
-		      },
-		      autoScrollOffset: 1,
-		    },
-		  });
-		/*=======/page-slider========*/
     });
     $(".popup__close,  .closex").on("click", function (event) {
         event.preventDefault();
@@ -141,132 +63,142 @@ $(window).scroll(function() {
     });
   /*==============/popup=================*/
 
-  /*======Select-styler=============*/
-  $(function() {
-    $('select').styler();
-  });
-  /*======/select-styler=============*/
+  /*===============Popup-photo=================*/
+    $(".open-popup-photo").on("click", function (event) {
+        name_pop = $(this).attr('data-popup');
+        event.preventDefault();
+        $(".popup."+name_pop).fadeIn(111);
+        $(".popup."+name_pop+" .popup__inner").fadeIn(111);
+        $('body').addClass("hidden");
+        $('.wrapper').addClass("bg");
+        $('.photo-hotel-popup__photo').html($(this).find('.photo-hotel__photo').html());
+        $('.photo-hotel-popup__description').html($(this).find('.photo-hotel__description').html());
+    });
+    $(".popup__close,  .closex").on("click", function (event) {
+        event.preventDefault();
+        $(".popup").fadeOut('111');
+        $(".popup__inner").fadeOut(111);
+        $('body').removeClass("hidden");
+        $('.wrapper').removeClass("bg");
+    });
+  /*==============/popup=================*/
 
-  /*=================Sliders===================*/
-	/*========Stat__slider========*/
-  	new Swiper('.stat__slider', {
-    slidesPerView: 3,
-    spaceBetween: 22,
+ /*=================Sliders===================*/
+ 	/*========intro-slider========*/
+  	$('.intro__slider').slick({
+  		fade: true,
+  		slidesToShow: 1,
+  		slidesToScroll: 1,
+  		prevArrow: $('.intro .slider-arrow_prev'),
+  		nextArrow: $('.intro .slider-arrow_next'),
+  		dots: true,
+  	});
+	/*=======/intro-slider========*/
+
+	/*========photo-slider========*/
+  	new Swiper('.photo-slider', {
+    slidesPerView: 4,
+    spaceBetween: 30,
     loop: true,
     resizeReInit: true,
+    navigation: {
+        nextEl: '.arrow-circle_next',
+        prevEl: '.arrow-circle_prev',
+      },
       breakpoints: {
         320: {
           slidesPerView: 1,
         },
         547: {
-          slidesPerView: 1,
+          slidesPerView: 2,
         },
-        765: {
+        769: {
           slidesPerView: 3,
         },
+        1400: {
+          slidesPerView: 4,
+        },
       }
   });
-/*=======/stat__slider========*/
+/*=======/photo-slider========*/
 
-/*========Car__slider========*/
-  	new Swiper('.cars__slider', {
+/*========page-slider========*/
+  new Swiper('.page-slider-main', {
     slidesPerView: 1,
-    spaceBetween: 206,
-    //loop: true,
-    resizeReInit: true,
-    navigation: {
-    	prevEl: '.slider-arrow_prev',
-	  	nextEl: '.slider-arrow_next',
-	},
-    breakpoints: {
-    	320: {
-          spaceBetween: 13,
-        },
-    	760: {
-          spaceBetween: 50,
-        },
-        1200: {
-          spaceBetween: 95,
-        },
-        1440: {
-          spaceBetween: 115,
-        },
-        1920: {
-          spaceBetween: 154,
-        },
-        2560: {
-          spaceBetween: 206,
-        },
-      }
-  });
-/*=======/cars__slider========*/
-
-/*========Steps__slider========*/
-  	new Swiper('.steps__slider', {
-    slidesPerView: 1.265,
-    spaceBetween: 111,
     loop: true,
-    resizeReInit: true,
     navigation: {
-	  	nextEl: '.slider-arrow_next',
-	},
-    breakpoints: {
-    	320: {
-          spaceBetween: 13,
+      nextEl: '.slider-arrow_next',
+      prevEl: '.slider-arrow_prev',
+    },
+    thumbs: {
+      swiper: {
+        el: '.page-slider-min',
+        //loop: true,
+        slidesPerView: 5,
+        spaceBetween: 16,
+        breakpoints: {
+          320: {
+            spaceBetween: 4,
+          },
+          993: {
+            spaceBetween: 16,
+          },
         },
-    	760: {
-          spaceBetween: 30,
-        },
-        1200: {
-          spaceBetween: 51,
-        },
-        1440: {
-          spaceBetween: 62,
-        },
-        1920: {
-          spaceBetween: 83,
-        },
-        2560: {
-          spaceBetween: 111,
-        },
-      }
+      },
+      autoScrollOffset: 1,
+    },
   });
-/*=======/steps__slider========*/
-
-/*========Social__slider========*/
-  	new Swiper('.social__slider', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    loop: true,
-    resizeReInit: true,
-    updateOnWindowResize: true,
-    navigation: {
-	  	nextEl: '.slider-arrow_next',
-	},
-    breakpoints: {
-    	320: {
-          spaceBetween: 10,
-        },
-    	760: {
-          spaceBetween: 10,
-        },
-        1200: {
-          spaceBetween: 10,
-        },
-        1440: {
-          spaceBetween: 12,
-        },
-        1920: {
-          spaceBetween: 15,
-        },
-        2560: {
-          spaceBetween: 20,
-        },
-      }
-  });
+/*=======/page-slider========*/
 
 
+/*=================/sliders===================*/
 
- /*=================Sliders===================*/
+$('.copyright__year').html((new Date()).getFullYear());
+
+/*==========Form============*/
+$("form").submit(function(e) {
+
+	console.log($('form').attr('id'));
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var actionUrl = form.attr('action');
+	name_input = form.find('input[name="name"]')
+	phone_input = form.find('input[name="phone"]')
+	
+	$('.form__item').removeClass('error');
+	if(name_input.val().length == 0)
+  {  
+ 
+    name_input.parent().addClass('error');
+  }
+  if(phone_input.val().length == 0)
+  {
+    phone_input.parent().addClass('error');
+  }
+
+  if(name_input.val().length == 0 || phone_input.val().length == 0)
+  {
+    return false;
+  }
+
+	
+    form.find('.form-success').addClass('show');
+ 
+    $.ajax({
+        type: "POST",
+        url: 'http://127.0.0.1/',
+        data: form.serialize(), // serializes the form's elements.
+        success: function(data)
+        {
+          alert(data); // show response from the php script.
+        }
+    });
+    
+});
+/*==========/form============*/
 
 });
+
+
