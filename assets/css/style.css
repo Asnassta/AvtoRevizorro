@@ -977,7 +977,7 @@ body.hidden {
     animation-name: slideUpGrow; }
     .intro__content:after {
       content: "";
-      background: rgba(17, 23, 28, 0.27);
+      background: rgba(17, 23, 28, 0.6);
       width: 100%;
       height: 100%;
       position: absolute;
@@ -1344,7 +1344,7 @@ body.hidden {
     object-fit: cover; }
   .faq__bgvideo:after {
     content: "";
-    background: rgba(17, 23, 28, 0.27);
+    background: rgba(17, 23, 28, 0.6);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -1367,7 +1367,7 @@ body.hidden {
     width: 150%; }
   .faq__video:after {
     content: "";
-    background: rgba(17, 23, 28, 0.27);
+    background: rgba(17, 23, 28, 0.6);
     width: 100%;
     height: 100%;
     position: absolute;
