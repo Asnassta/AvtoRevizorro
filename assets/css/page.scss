@@ -477,8 +477,10 @@
 			padding-top: 23px;
 			display: flex;
 			flex-direction: column;
+			opacity: 0;
 			&.show {
 				transform: translateY(0);
+				opacity: 1;
 			}
 		}
 		&__nav {
@@ -509,7 +511,8 @@
 			flex-direction: column;
 			align-items: stretch;
 			justify-content: flex-end;
-			padding-bottom: 20px;
+			padding-bottom: 120px;
+			margin-top: 20px;
 		}
 		&__btn {
 			display: flex;

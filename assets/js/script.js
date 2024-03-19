@@ -239,11 +239,11 @@ $(window).scroll(function() {
     breakpoints: {
     	320: {
           spaceBetween: 13,
-          slidesPerView: 1.1,
+          slidesPerView: 1,
         },
     	760: {
           spaceBetween: 30,
-          slidesPerView: 1.1,
+          slidesPerView: 1,
         },
         1200: {
           spaceBetween: 51,
