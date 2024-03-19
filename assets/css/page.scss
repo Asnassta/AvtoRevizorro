@@ -694,6 +694,7 @@
 		&__links {
 			flex-direction: column;
 			align-items: center;
+			padding-bottom: 2px;
 		}
 		&__link {
 			font-size: 20px;
@@ -721,6 +722,11 @@
 	.footer {
 		&__links {
 			align-items: flex-start;
+		}
+		&__address {
+			span {
+				display: block;
+			}
 		}
 	}
 }

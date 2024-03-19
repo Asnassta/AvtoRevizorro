@@ -2098,7 +2098,7 @@ body.hidden {
 		&__question {
 			span {
 				font-size: 26px;
-				margin-right: 10px;
+				margin-right: 20px;
 			}
 		}
 		&__bgvideo {
@@ -2688,6 +2688,9 @@ body.hidden {
 		&__title {
 			font-size: 40px;
 			margin-bottom: 20px;
+		}
+		&__description {
+			max-width: 250px;
 		}
 	}
 }
