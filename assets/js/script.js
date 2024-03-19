@@ -62,8 +62,10 @@ $(document).ready(function() {
   });
 
   $(".cars__play").on("click", function(event) {
-    event.preventDefault();
-      $(this).parents(".cars__item").find(".cars__video").fadeToggle();
+    if ($(window).width() > 760){
+        event.preventDefault();
+        $(this).parents(".cars__item").find(".cars__video").fadeToggle();
+    };
   });
   /*========/cars=========*/
 
@@ -243,7 +245,7 @@ $(window).scroll(function() {
         },
     	760: {
           spaceBetween: 30,
-          slidesPerView: 1,
+          slidesPerView: 1.1,
         },
         1200: {
           spaceBetween: 51,
