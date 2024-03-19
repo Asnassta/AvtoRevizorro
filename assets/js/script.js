@@ -2,12 +2,14 @@ $(document).ready(function() {
 	/*========Mobile-menu=========*/
   $(".header__burger").on("click", function(event) {
     event.preventDefault();
+      //$(".header__menu").slideDown(333); 
       $(".header__menu").addClass('show'); 
       $('body').addClass('hidden'); 
   });
   $(".header__close").on("click", function(event) {
     event.preventDefault();
-      $(".header__menu").removeClass('show'); 
+    $(".header__menu").removeClass('show'); 
+      //$(".header__menu").slideUp(333); 
       $('body').removeClass('hidden'); 
   });
   /*========/mobile-menu=========*/
