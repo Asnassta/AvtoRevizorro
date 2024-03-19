@@ -386,7 +386,7 @@
       margin-right: 20px;
       margin-bottom: 40px; }
     .header__menu {
-      transform: translateY(-100%);
+      transform: translateY(-105%);
       background-color: #201d17;
       width: 100%;
       position: absolute;
