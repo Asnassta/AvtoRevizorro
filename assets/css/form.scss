@@ -17,15 +17,15 @@
 					display: inline-block;
 					width: 1.171875vw;
 					height: 1.171875vw;
-					border-radius: 5px;
+					border-radius: 0.195vw;
 					border: 1px solid $bl;
 					margin-right: 9px;
 					vertical-align: middle;
 					position: relative;
 					&:after {
 						content: "";
-						width: 15px;
-						height: 10.5px;
+						width: 0.586vw;
+						height: 0.41vw;
 						background: url("../images/check.svg") center no-repeat;
 						background-size: contain;
 						@include center-pos;
@@ -59,7 +59,7 @@
 	}
 	&-select {
 		select {
-			display: none;
+			//display: none;
 		}
 	}
 }
@@ -166,3 +166,46 @@
 	}
 }
 /*========/jq-selectbox=======*/
+
+/*=============Adaptive===========*/
+@media(max-width: 1180px) {
+	.form {
+		&-radiobox {
+			label {
+				span {
+					&:first-child {
+						width: 24px;
+						height: 24px;
+						border-radius: 5px;
+						&:after {
+							width: 12px;
+							height: 8.5px;
+						}
+					}
+					&:nth-child(2) {
+						font-size: 18px;
+					}
+				}
+			}
+		}
+	}
+	.jq-selectbox {
+		&:before {
+			width: 16px;
+			height: 16px;
+		}
+		&__select {
+			padding-bottom: 15px;
+			&-text {
+				font-size: 20px;
+			}
+		}
+		&__dropdown {
+			li {
+				font-size: 20px;
+				padding: 10px;
+			}
+		}
+	}
+}
+/*=============/adaptive===========*/

@@ -63,11 +63,11 @@ $(document).ready(function() {
 
   $(".cars__play").on("click", function(event) {
     event.preventDefault();
-      $(this).next().fadeToggle();
+      $(this).parents(".cars__item").find(".cars__video").fadeToggle();
   });
   /*========/cars=========*/
 
-    /*============FixedHeader========*/
+  /*============FixedHeader========*/
   let header = $(".header");
   let headerH = $(".header").innerHeight();
   let scrollOffset = $(window).scrollTop();
@@ -127,7 +127,7 @@ $(window).scroll(function() {
         $(".popup."+name_pop+" .popup__inner").fadeIn(111);
         $('body').addClass("hidden");
 
-        /*========Page-slider========*/
+      /*========Page-slider========*/
 		  new Swiper('.page-slider-main', {
 		    slidesPerView: 1,
 		    loop: true,
@@ -147,7 +147,12 @@ $(window).scroll(function() {
 		          },
 		          993: {
 		            spaceBetween: 16,
+                slidesPerView: 5,
 		          },
+              1361: {
+                spaceBetween: 20,
+                slidesPerView: 8,
+              },
 		        },
 		      },
 		      autoScrollOffset: 1,
@@ -179,11 +184,13 @@ $(window).scroll(function() {
       breakpoints: {
         320: {
           slidesPerView: 1,
+          spaceBetween: 13,
         },
-        547: {
-          slidesPerView: 1,
+        540: {
+          slidesPerView: 2,
+          spaceBetween: 13,
         },
-        765: {
+        1181: {
           slidesPerView: 3,
         },
       }
@@ -204,11 +211,8 @@ $(window).scroll(function() {
     	320: {
           spaceBetween: 13,
         },
-    	760: {
+        861: {
           spaceBetween: 50,
-        },
-        1200: {
-          spaceBetween: 95,
         },
         1440: {
           spaceBetween: 115,
@@ -235,21 +239,27 @@ $(window).scroll(function() {
     breakpoints: {
     	320: {
           spaceBetween: 13,
+          slidesPerView: 1.1,
         },
     	760: {
           spaceBetween: 30,
+          slidesPerView: 1.1,
         },
         1200: {
           spaceBetween: 51,
+          slidesPerView: 1.265,
         },
         1440: {
           spaceBetween: 62,
+          slidesPerView: 1.265,
         },
         1920: {
           spaceBetween: 83,
+          slidesPerView: 1.265,
         },
         2560: {
           spaceBetween: 111,
+          slidesPerView: 1.265,
         },
       }
   });
