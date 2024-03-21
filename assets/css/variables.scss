@@ -11,6 +11,8 @@ $grad-gray: linear-gradient(180.00deg, rgb(245, 245, 245),rgba(245, 245, 245, 0)
 $b-r: calc(100vw * 0.005859);
 $p-calc: 3.125vw;
 $fz-text: 1.015625vw;
+$fz-26: 1.015625vw;
+$fz-24: 0.9375vw;
 
 @mixin center-pos {
   position: absolute;

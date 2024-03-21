@@ -10,6 +10,10 @@
 	background-color: rgba(255, 255, 255, .8);
 	backdrop-filter: blur(34px);
 	transition: all .4s linear;
+	animation-delay: .3s;
+	animation-duration: 0.8s;
+	animation-fill-mode: both;
+	animation-name: fadeIn;
 	&.fixed {
 		transform: translateY(-100%);
 	}
@@ -54,7 +58,6 @@
 		font-size: $fz-text;
 		font-weight: 500;
 		color: $bl;
-		//border: 1px solid $wh;
 		border-radius: 4.882812vw;
 		padding: 1.09375vw 2vw;
 		text-align: center;
@@ -63,6 +66,12 @@
 			&:hover {
 				//border: 1px solid $bl;
 			}
+		}
+		&.active {
+			border: 1px solid $bl;
+		}
+		&.unactive {
+			color: rgb(163, 163, 163);
 		}
 	}
 	&__btn {
@@ -508,6 +517,9 @@
 			border-radius: 0;
 			&:first-child {
 				border-top: 1px solid rgba(255, 255, 255, .2);
+			}
+			&.active {
+				border-bottom: 1px solid rgba(255, 255, 255, .2);
 			}
 		}
 		&__buttons {

@@ -39,7 +39,11 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(34px);
-  transition: all .4s linear; }
+  transition: all .4s linear;
+  animation-delay: .3s;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-name: fadeIn; }
   .header.fixed {
     transform: translateY(-100%); }
   .header.show {
@@ -80,6 +84,10 @@
     padding: 1.09375vw 2vw;
     text-align: center;
     transition: all .4s linear; }
+    .header__link.active {
+      border: 1px solid #201d17; }
+    .header__link.unactive {
+      color: #a3a3a3; }
   .header__btn {
     margin-left: 3.5vw;
     border-radius: 2.5vw;
@@ -423,6 +431,8 @@
       border-radius: 0; }
       .header__link:first-child {
         border-top: 1px solid rgba(255, 255, 255, 0.2); }
+      .header__link.active {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
     .header__buttons {
       flex: 1 1 auto;
       display: flex;
@@ -600,7 +610,15 @@
     transform: translate3d(0, 100%, 0);
     opacity: 0; }
   100% {
-    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@keyframes slideUpM {
+  0% {
+    transform: translate3d(0, 20%, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0, 0);
     opacity: 1; } }
 
 @keyframes slideDownUp {
@@ -610,6 +628,12 @@
     transform: translateY(8px); }
   100% {
     transform: translateY(0); } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 /*============Popup==========*/
 .popup {
@@ -878,6 +902,13 @@ body.hidden {
 .section {
   margin-bottom: 5.859375vw; }
 
+.title-main {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 8.203125vw;
+  font-weight: 500;
+  color: #201d17;
+  line-height: 0.97; }
+
 .title {
   font-family: "Aeonik Pro", sans-serif;
   font-size: 6.25vw;
@@ -898,6 +929,9 @@ body.hidden {
 
 .mb-50 {
   margin-bottom: 1.953125vw; }
+
+.brown {
+  color: #594f3c; }
 
 .btn {
   min-width: 20.3125vw;
@@ -1077,6 +1111,41 @@ body.hidden {
     .btn-play:hover:before {
       width: calc(100% + 2px);
       height: calc(100% + 2px); } }
+
+.list li {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.015625vw;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.6;
+  padding-left: 3.203125vw;
+  position: relative;
+  margin-bottom: 0.976562vw; }
+  .list li:before {
+    content: "";
+    width: 2.03125vw;
+    height: 2px;
+    background-color: #201d17;
+    position: absolute;
+    left: 0;
+    top: 0.729167vw;
+    z-index: 1; }
+  .list li span {
+    font-weight: 500; }
+
+.scroll-link {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer; }
+  .scroll-link span {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 0.9375vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    margin-right: 1.171875vw; }
+  .scroll-link img {
+    width: 0.625vw; }
 
 /*==========Page-slider=========*/
 .page-slider {
@@ -1607,6 +1676,10 @@ body.hidden {
   font-size: 1.09375vw;
   font-weight: 400;
   line-height: 1.6; }
+  .faq__text a {
+    color: #201d17;
+    text-decoration: underline;
+    transition: all .2s linear; }
 
 /*===========FAQ============*/
 /*===========Stat=============*/
@@ -1962,6 +2035,16 @@ body.hidden {
 
 /*============/cars==============*/
 /*==========Diagnostics==========*/
+.diagnostics_check .diagnostics__text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .diagnostics_check .diagnostics__text p {
+    font-size: 1.328vw; }
+    .diagnostics_check .diagnostics__text p:last-child {
+      font-size: 1.01563vw; }
+
 .diagnostics__inner {
   display: flex; }
 
@@ -2015,6 +2098,29 @@ body.hidden {
     .diagnostics__text p:last-child {
       margin-bottom: 0;
       font-size: 0.9375vw; }
+  .diagnostics__text b {
+    font-weight: 500; }
+  .diagnostics__text span {
+    color: #594f3c; }
+  .diagnostics__text a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625vw 0.898vw 0.5vw 0.898vw;
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 0.9375vw;
+    font-weight: 500;
+    color: #201d17;
+    line-height: 1.6;
+    border: 1px solid #201d17;
+    border-radius: 0.39vw;
+    margin-bottom: 20px; }
+    .diagnostics__text a img {
+      width: 0.664vw;
+      margin-left: 0.5859vw;
+      margin-bottom: 0.3125vw; }
+    .diagnostics__text a br {
+      display: none; }
 
 /*==========/diagnostics==========*/
 /*===========Price============*/
@@ -2187,6 +2293,8 @@ body.hidden {
   .steps .swiper-slide-active .steps__visual {
     background-color: whitesmoke;
     border: none; }
+  .steps .title {
+    margin-bottom: 2.03125vw; }
   .steps__slider {
     margin-right: -1.875vw !important;
     margin-left: -1.875vw !important;
@@ -2319,6 +2427,378 @@ body.hidden {
     margin-right: 20px; }
 
 /*=========/call==========*/
+/*=========Page-intro========*/
+.page-intro {
+  padding-top: 3.046875vw; }
+  .page-intro .title-main {
+    margin-bottom: 6.328125vw;
+    animation-delay: .3s;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-name: slideUpM; }
+  .page-intro__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 5.078125vw;
+    animation-delay: .3s;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-name: slideUpM; }
+  .page-intro__description {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.953125vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4; }
+  .page-intro .scroll-link {
+    margin-bottom: 0.3125vw; }
+  .page-intro__photo {
+    animation-delay: .3s;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-name: fadeIn; }
+    .page-intro__photo img {
+      width: 100%;
+      min-height: 385px;
+      object-fit: cover;
+      border-radius: 0.585938vw; }
+
+/*=========/page-intro========*/
+/*==========Guarantees=========*/
+.guarantees .title {
+  line-height: .9;
+  margin-bottom: 3.710938vw; }
+  .guarantees .title span {
+    font-weight: 400; }
+
+.guarantees__list {
+  padding-left: 8.710938vw;
+  padding-right: 16.640625vw;
+  margin-bottom: 2.5vw; }
+  .guarantees__list li {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.640625vw;
+    font-weight: 400;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 4.53125vw;
+    padding-top: 0.351562vw;
+    padding-bottom: 0.351562vw;
+    margin-bottom: 1.328125vw; }
+    .guarantees__list li:last-child {
+      margin-bottom: 0; }
+    .guarantees__list li:before {
+      content: "";
+      width: 3.125vw;
+      height: 3.125vw;
+      background: url("../images/check-circle.svg") center no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1; }
+    .guarantees__list li span {
+      position: relative;
+      display: inline-block; }
+      .guarantees__list li span:after {
+        content: "*";
+        font-family: "Aeonik Pro", sans-serif;
+        font-size: 2.34375vw;
+        font-weight: 400;
+        display: block;
+        text-transform: uppercase;
+        background-color: #ed0505;
+        background-image: linear-gradient(180deg, #ed0505, #e8c185);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: absolute;
+        top: -0.95vw;
+        right: -0.9vw;
+        z-index: 1; }
+
+.guarantees__description {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.015625vw;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #35322c;
+  margin-left: auto;
+  position: relative;
+  max-width: 21.25vw; }
+  .guarantees__description span {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 2.34375vw;
+    font-weight: 400;
+    display: block;
+    text-transform: uppercase;
+    background-color: #ed0505;
+    background-image: linear-gradient(180deg, #ed0505, #e8c185);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: -1.1vw;
+    left: -1vw;
+    z-index: 1; }
+
+/*==========/guarantees=========*/
+/*==========Info============*/
+.info__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4.648438vw; }
+  .info__row:last-child {
+    margin-bottom: 0; }
+
+.info__col-b {
+  width: 45.351562vw;
+  margin-right: 20px; }
+
+.info__col-s {
+  width: 23.398438vw; }
+
+.info__col_pl {
+  padding-left: 8.476562vw; }
+
+.info__title {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 4.296875vw;
+  font-weight: 500;
+  color: #201d17;
+  line-height: .82;
+  margin-bottom: 2.34375vw; }
+
+.info__text {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.640625vw;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.5; }
+  .info__text_small {
+    font-size: 1.09375vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.6; }
+  .info__text_min {
+    font-size: 1.015625vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.6; }
+  .info__text span {
+    color: #594f3c; }
+  .info__text a {
+    color: #201d17;
+    text-decoration: underline; }
+  .info__text img {
+    width: 0.664vw;
+    vertical-align: middle;
+    margin-left: 12px;
+    margin-bottom: 3px; }
+  .info__text span {
+    color: #594f3c; }
+
+.info .list {
+  margin-top: 1.367188vw; }
+  .info .list:first-child {
+    margin-top: 0; }
+  .info .list li {
+    font-size: 0.9375vw; }
+    .info .list li:before {
+      top: 0.6vw; }
+
+/*==========/info============*/
+/*============Include============*/
+.include__inner {
+  display: flex; }
+
+.include__box {
+  width: calc(50% - 10px);
+  padding: 3.125vw;
+  border-radius: calc(100vw * 0.005859);
+  border: 1px solid #201d17; }
+  .include__box:first-child {
+    margin-right: 20px; }
+
+.include__title {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 3.515625vw;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #201d17;
+  margin-bottom: 2.34375vw; }
+  .include__title span {
+    text-transform: uppercase; }
+  .include__title-highlight {
+    margin-right: 0.429vw;
+    position: relative;
+    z-index: 1; }
+    .include__title-highlight:before {
+      content: "";
+      width: 5.625vw;
+      height: 4.101462vw;
+      border-radius: 0.390625vw;
+      background: linear-gradient(180deg, #fff555, #e8c185 100%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -57%);
+      z-index: -1; }
+
+/*============/include============*/
+/*==========Articles========*/
+.articles__inner {
+  display: flex; }
+
+.articles__box {
+  width: calc(50% - 10px);
+  min-height: 27.695312vw;
+  padding: 3.125vw;
+  border-radius: calc(100vw * 0.005859);
+  border: 1px solid #201d17;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1; }
+  .articles__box:before {
+    content: "";
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, #fff555, #e8c185 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .3s linear;
+    border-radius: calc(100vw * 0.005859);
+    opacity: 0; }
+  @media (min-width: 1025px) {
+    .articles__box:hover .articles__description {
+      opacity: 1; }
+    .articles__box:hover:before {
+      width: 100%;
+      height: 100%;
+      opacity: 1; } }
+  .articles__box:first-child {
+    margin-right: 20px; }
+
+.articles__title {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 3.515625vw;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #201d17;
+  margin-bottom: 30px; }
+
+.articles__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.articles__arrow svg {
+  fill: none;
+  stroke: #201d17;
+  width: 8.007812vw;
+  height: 1.992188vw;
+  transition: all .3s linear;
+  transform: rotate(180deg); }
+
+.articles__description {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 500;
+  color: #201d17;
+  line-height: 1.6;
+  opacity: 0; }
+
+/*==========/articles========*/
+/*=========Offer============*/
+.offer .title {
+  line-height: 0.9; }
+
+.offer__block {
+  display: flex;
+  margin-bottom: 4.6875vw; }
+  .offer__block:last-child {
+    margin-bottom: 0; }
+
+.offer__info {
+  max-width: 23.63vw; }
+
+.offer__description {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.171875vw;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.6;
+  margin-bottom: 3.4vw; }
+
+.offer__price {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 3.90625vw;
+  font-weight: 500;
+  line-height: 0.9; }
+
+.offer__subtext {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.0156vw;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #594f3c; }
+
+.offer__line {
+  flex: 1 1 auto;
+  height: 0.3125vw;
+  background-color: #201d17;
+  margin: 0 2.3047vw 0 3.125vw;
+  margin-top: 8.2vw; }
+
+/*=========/offer============*/
+/*===========Service=======*/
+.service__inner {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-bottom: -20px; }
+  .service__inner > * {
+    width: calc(33.33333% - 20px);
+    margin-left: 20px;
+    margin-bottom: 20px; }
+
+.service__box {
+  padding: 3.125vw;
+  border-radius: calc(100vw * 0.005859);
+  border: 1px solid #201d17;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 28.125vw; }
+
+.service__title {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 2.734375vw;
+  font-weight: 500;
+  line-height: 1;
+  color: #201d17;
+  margin-bottom: 3.90625vw; }
+
+.service__text {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 0/9375vw;
+  flex-wrap: 400;
+  line-height: 1.6;
+  margin-bottom: 30px; }
+  .service__text span {
+    color: #594f3c; }
+
+.service__price {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 2.734375vw;
+  font-weight: 500;
+  color: #201d17;
+  line-height: 0.9; }
+
+/*===========/service=======*/
 /*===========Adaptive============*/
 @media (min-width: 2560px) {
   .container {
@@ -2335,7 +2815,11 @@ body.hidden {
   .page-slider .slider-arrow_prev {
     left: 20px; }
   .page-slider .slider-arrow_next {
-    right: 20px; } }
+    right: 20px; }
+  .scroll-link span {
+    font-size: 16px; }
+  .scroll-link img {
+    width: 10px; } }
 
 @media (max-width: 1024px) and (min-height: 600px) {
   .page-slider .slider-arrow {
@@ -2349,6 +2833,106 @@ body.hidden {
     margin-bottom: 40px; }
   .wrapper {
     padding-top: 100px; }
+  .list li {
+    font-size: 17px;
+    padding-left: 36px;
+    margin-bottom: 25px; }
+    .list li:before {
+      width: 23px;
+      top: 12px; }
+  .articles__title {
+    font-size: 32px; }
+  .articles__box {
+    padding: 20px;
+    border-radius: 10px; }
+  .articles__description {
+    display: none; }
+  .guarantees__list li {
+    padding-top: 5px;
+    font-size: 20px;
+    padding-left: 44px;
+    margin-bottom: 25px; }
+    .guarantees__list li:before {
+      width: 32px;
+      height: 32px; }
+    .guarantees__list li span:after {
+      font-size: 28px;
+      top: -10px;
+      right: -11px; }
+  .guarantees__description {
+    font-size: 16px;
+    max-width: 325px; }
+    .guarantees__description span {
+      font-size: 28px;
+      top: -11px;
+      left: -12px; }
+  .info__row {
+    display: block; }
+  .info__col-b {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px; }
+  .info__col-s {
+    width: 100%; }
+  .info__text {
+    font-size: 22px; }
+    .info__text_small {
+      font-size: 20px; }
+    .info__text_min {
+      font-size: 18px; }
+    .info__text img {
+      width: 11px;
+      margin-bottom: 0; }
+  .info .list {
+    margin-top: 16px; }
+    .info .list li {
+      font-size: 17px;
+      padding-left: 36px; }
+      .info .list li:before {
+        width: 23px;
+        top: 12px; }
+  .include__box {
+    padding: 20px;
+    border-radius: 10px; }
+  .offer__block {
+    display: block;
+    margin-bottom: 30px; }
+  .offer .title {
+    margin-bottom: 10px; }
+    .offer .title br {
+      display: none; }
+  .offer__info {
+    max-width: 100%; }
+  .offer__description {
+    font-size: 20px;
+    margin-bottom: 20px; }
+  .offer__price {
+    font-size: 40px; }
+  .offer__subtext {
+    font-size: 16px; }
+    .offer__subtext br {
+      display: none; }
+  .offer__line {
+    display: none; }
+  .service__inner {
+    display: block;
+    margin-left: 0;
+    margin-bottom: -10px; }
+    .service__inner > * {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 10px; }
+  .service__box {
+    padding: 20px;
+    border-radius: 10px;
+    min-height: auto; }
+  .service__title {
+    font-size: 34px;
+    margin-bottom: 20px; }
+  .service__text {
+    font-size: 18px; }
+  .service__price {
+    font-size: 30px; }
   .btn {
     padding: 10px 10px 10px 20px;
     border-radius: 30px;
@@ -2388,6 +2972,12 @@ body.hidden {
     line-height: 1.3; }
   .page-slider__subtitle {
     font-size: 24px; }
+  .page-intro__description {
+    font-size: 22px; }
+  .page-intro .scroll-link {
+    margin-bottom: 0; }
+  .page-intro__photo img {
+    border-radius: 10px; }
   .social {
     display: none; }
     .social__nav {
@@ -2585,6 +3175,10 @@ body.hidden {
     .cars__btn svg {
       width: 15px;
       height: 15px; }
+  .diagnostics_check .diagnostics__text p {
+    font-size: 18px; }
+    .diagnostics_check .diagnostics__text p:last-child {
+      font-size: 12px; }
   .diagnostics__title {
     font-size: 36px; }
   .diagnostics__subtitle {
@@ -2600,6 +3194,15 @@ body.hidden {
     margin-bottom: 30px; }
     .diagnostics__text p:last-child {
       font-size: 12px; }
+    .diagnostics__text a {
+      display: block;
+      font-size: 16px;
+      padding: 14px 20px;
+      border-radius: 10px; }
+      .diagnostics__text a img {
+        width: 11px;
+        margin-top: 6px;
+        margin-left: 2px; }
   .price__buttons {
     margin-top: 20px; }
     .price__buttons-description {
@@ -2652,6 +3255,8 @@ body.hidden {
         font-size: 16px;
         font-weight: 300;
         max-width: 100%; }
+    .steps__text img {
+      width: 11px; }
   .steps .slider-arrow {
     display: none !important; }
   .social__description {
@@ -2667,6 +3272,9 @@ body.hidden {
 @media (max-width: 860px) {
   .container {
     max-width: 100vw; }
+  .guarantees .title {
+    font-size: 50px;
+    margin-bottom: 20px; }
   .faq_main .faq__question span {
     font-size: 26px; }
   .faq__list li {
@@ -2690,6 +3298,8 @@ body.hidden {
     display: none !important; }
   .steps {
     overflow: hidden; }
+    .steps .title {
+      margin-bottom: 20px; }
     .steps__slider {
       overflow: visible !important;
       padding-right: 20px !important; }
@@ -2739,12 +3349,42 @@ body.hidden {
     padding-left: 0; } }
 
 @media (max-width: 760px) {
+  .title-main {
+    font-size: 50px; }
   .title {
     font-size: 40px; }
   .title-medium {
     font-size: 40px; }
   .mb-50 {
     margin-bottom: 20px; }
+  .guarantees__list {
+    padding-left: 0;
+    padding-right: 0; }
+  .guarantees__description {
+    max-width: 100%;
+    margin-left: 10px; }
+  .info__title {
+    font-size: 40px;
+    margin-bottom: 20px; }
+  .info__row {
+    margin-bottom: 20px; }
+  .info__col_pl {
+    padding-left: 0; }
+  .include__inner {
+    display: block; }
+  .include__box {
+    width: 100%; }
+    .include__box:first-child {
+      margin-right: 0;
+      margin-bottom: 10px; }
+  .include__title {
+    font-size: 34px;
+    margin-bottom: 20px; }
+    .include__title-highlight:before {
+      width: 50px;
+      height: 35px;
+      border-radius: 5px;
+      transform: translate(-50%, -59%); }
   .cars {
     position: relative;
     padding-bottom: 90px; }
@@ -2799,6 +3439,12 @@ body.hidden {
       padding-left: 0; }
     .cars .cars__description {
       padding-left: 0; }
+  .diagnostics_check .diagnostics__text {
+    height: auto; }
+    .diagnostics_check .diagnostics__text p {
+      font-size: 22px; }
+      .diagnostics_check .diagnostics__text p:last-child {
+        font-size: 18px; }
   .diagnostics__inner {
     display: block; }
   .diagnostics__photo {
@@ -2817,6 +3463,13 @@ body.hidden {
       margin-bottom: 20px; }
       .diagnostics__text p:last-child {
         font-size: 18px; }
+    .diagnostics__text a {
+      font-size: 20px; }
+      .diagnostics__text a img {
+        width: 13px;
+        margin-top: 8px; }
+      .diagnostics__text a br {
+        display: block; }
   .steps__item {
     display: block;
     min-height: auto; }
@@ -2850,6 +3503,13 @@ body.hidden {
       max-width: 250px; } }
 
 @media (max-width: 540px) {
+  .page-intro .title-main {
+    margin-bottom: 175px; }
+  .page-intro__row {
+    display: block;
+    margin-bottom: 20px; }
+  .page-intro__description {
+    margin-bottom: 70px; }
   .btn {
     padding: 13.5px 13.5px 13.5px 27px;
     border-radius: 64px;
@@ -2945,7 +3605,44 @@ body.hidden {
       position: absolute;
       bottom: 0;
       left: 20px;
-      z-index: 1; } }
+      z-index: 1; }
+  .articles__inner {
+    display: block; }
+  .articles__box {
+    width: 100%;
+    flex-direction: row;
+    align-items: center; }
+    .articles__box:first-child {
+      margin-right: 0;
+      margin-bottom: 10px; }
+  .articles__title {
+    margin-bottom: 0;
+    margin-right: 15px; }
+  .articles__arrow {
+    width: 43px;
+    height: 43px;
+    background-color: #fff555;
+    border-radius: 50%;
+    position: relative; }
+    .articles__arrow:after {
+      content: "";
+      width: 15.3px;
+      height: 11.5px;
+      background: url("../images/arrow.svg") center no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1; }
+    .articles__arrow svg {
+      display: none; } }
+
+@media (max-width: 414px) {
+  .include__title br {
+    display: none; }
+  .offer .title br {
+    display: block; } }
 
 @media (max-width: 360px) {
   .btn span:first-child {
@@ -2963,6 +3660,10 @@ body.hidden {
   .about__status-item {
     font-size: 14px; }
   .cars__equipment-title {
+    font-size: 25px; }
+  .guarantees .title {
+    font-size: 42px; }
+  .articles__title {
     font-size: 25px; } }
 
 /*===========/adaptive============*/

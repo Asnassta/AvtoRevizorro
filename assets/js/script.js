@@ -118,8 +118,8 @@ $(window).scroll(function() {
       blockOffset = $('#'+blockID).offset().top;
  
     $("html, body").animate ({
-      scrollTop: blockOffset - 160
-    }, 2000);
+      scrollTop: blockOffset - 130
+    }, 1000);
   });
 /*=========/smooth scroll=============*/
 
