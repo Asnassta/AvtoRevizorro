@@ -106,6 +106,10 @@ body.hidden {
 	margin-bottom: 1.953125vw;
 }
 
+.mb-45 {
+	margin-bottom: 1.7578vw;
+}
+
 .brown {
 	color: $brown;
 }
@@ -1772,7 +1776,7 @@ body.hidden {
 	}
 	&__item {
 		width: 20.078125vw;
-		transition: all .4s linear;
+		transition: all .6s linear;
 		position: relative;
 		.btn-play {
 			@include center-pos;
@@ -2146,6 +2150,12 @@ body.hidden {
 			color: $bl;
 			line-height: 1.6;
 		}
+		&_med {
+			font-size: 1.328vw;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.6;
+		}
 		span {
 			color: rgb(89, 79, 60);
 		}
@@ -2299,6 +2309,14 @@ body.hidden {
 		color: $bl;
 		line-height: 1.6;
 		opacity: 0;
+	}
+	&__icon {
+		margin-bottom: 1.95vw;
+		filter: grayscale(1);
+		img {
+			width: 2.3438vw;
+			min-width: 30px;
+		} 
 	}
 }
 /*==========/articles========*/
@@ -2533,6 +2551,9 @@ body.hidden {
 		}
 		&__text {
 			font-size: 22px;
+			&_med {
+				font-size: 20px;
+			}
 			&_small {
 				font-size: 20px;
 			}
@@ -3581,6 +3602,7 @@ body.hidden {
 		}
 		&__info {
 			padding: 20px;
+			min-height: 700px;
 		}
 		&__title {
 			font-size: 50px;
@@ -3733,6 +3755,9 @@ body.hidden {
 			svg {
 				display: none;
 			}
+		}
+		&__icon {
+			display: none;
 		}
 	}
 }

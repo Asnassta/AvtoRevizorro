@@ -276,6 +276,7 @@ $(window).scroll(function() {
     loop: true,
     resizeReInit: true,
     updateOnWindowResize: true,
+    //speed: 500, 
     navigation: {
 	  	nextEl: '.slider-arrow_next',
 	},
