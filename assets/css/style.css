@@ -3092,10 +3092,12 @@ body.hidden {
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1; }
+    .faq__icon:after {
+      transform: translate(-50%, -50%) rotate(90deg); }
   .faq__item.active .faq__icon {
     background-color: #201d17; }
     .faq__item.active .faq__icon:after {
-      transform: translate(-50%, -50%) rotate(90deg); }
+      transform: translate(-50%, -50%) rotate(0deg); }
     .faq__item.active .faq__icon:after, .faq__item.active .faq__icon:before {
       background-color: #fff555; }
   .stat__title {

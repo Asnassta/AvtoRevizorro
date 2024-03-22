@@ -2861,14 +2861,16 @@ body.hidden {
 				width: 18px;
 				@include center-pos;
 			}
-			
+			&:after {
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
 		}
 		&__item {
 			&.active {
 				.faq__icon {
 					background-color: $bl;
 					&:after {
-						transform: translate(-50%, -50%) rotate(90deg);
+						transform: translate(-50%, -50%) rotate(0deg);
 					}
 					&:after, &:before {
 						background-color: $yellow;
