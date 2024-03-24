@@ -62,8 +62,347 @@
 			//display: none;
 		}
 	}
+	&-input {
+		position: relative;
+		input, textarea {
+			width: 100%;
+			background-color: $wh;
+			border-radius: 0.39vw;
+			padding: 1.4vw 3vw 1.2vw 1.72vw;
+			border: 1px solid $bl;
+			font-family: $ff;
+			font-size: $fz-30;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.4;
+			transition: all .3s linear;
+			&::placeholder {
+				color: $bl;
+				opacity: 0;
+				transition: all .3s linear;
+			}
+			&:focus {
+				background-color: $yellow;
+				&::placeholder {
+					opacity: 1;
+				}
+			}
+			&.active + label {
+				font-size: $fz-18;
+  				top: 0.5vw;
+  				transform: translate(0, 0);
+  				span {
+  					font-size: 0.55vw;
+  				}
+			}
+		}
+		textarea {
+			min-height: 15.39vw;
+			resize: none;
+		}
+		label {
+			padding-top: 0.15vw;
+			font-family: $ff;
+			font-size: $fz-30;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.4;
+			transition: all .3s linear;
+			position: absolute;
+			top: 1.4vw;
+  			left: 1.72vw;
+  			z-index: 1;
+  			span {
+  				color: $brown;
+  				&.brown {
+  					font-size: 0.85vw;
+  					margin-left: 11px;
+  				}
+  			}
+		}
+		&__error {
+			font-family: $ff;
+			font-size: $fz-18;
+			font-weight: 400;
+			color: rgb(231, 5, 5);
+			line-height: 1.4;
+			transition: all .3s linear;
+			position: absolute;
+  			top: 0.5vw;
+  			left: 1.72vw;
+  			z-index: 1;
+  			visibility: hidden;
+		}
+		&.active {
+			label {
+				font-size: $fz-18;
+  				top: 0.5vw;
+  				transform: translate(0, 0);
+  				.brown {
+  					font-size: 0.5vw;
+  				}
+			}
+		}
+		&.fill {
+			&:after {
+				content: "";
+				width: 0.78vw;
+				height: 0.54vw;
+				background: url("../images/check-inp.svg") center no-repeat;
+				background-size: contain;
+				position: absolute;
+				top: 1.7vw;
+  				right: 1.72vw;
+  				z-index: 1;
+			}
+		}
+		&.error {
+			.form-input__error {
+				visibility: visible;
+			}
+			&:after {
+				content: "";
+				width: 0.54vw;
+				height: 0.54vw;
+				background: url("../images/close-red.svg") center no-repeat;
+				background-size: contain;
+				position: absolute;
+				top: 50%;
+  				right: 1.72vw;
+  				transform: translate(0, -50%);
+  				z-index: 1;
+			}
+			input {
+				border-color: rgb(231, 5, 5);
+				&.active + label {
+					opacity: 0;
+				}
+			}
+			&.active {
+				label {
+					opacity: 0;
+				}
+			}
+		}
+	}
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -20px;
+		margin-bottom: -20px;
+		>* {
+			margin-left: 20px;
+			margin-bottom: 20px;
+		}
+		.form__item {
+			width: 100%;
+			&_half {
+				width: calc(50% - 20px);
+			}
+		}
+	}
+	&__description {
+		font-family: $ff;
+		font-size: $fz-16;
+		margin-top: 0.78vw;
+		span {
+			color: $brown;
+			font-size: 1vw;
+		}
+	}
+	&__row {
+		margin-top: 5px;
+		display: flex;
+		align-items: center;
+		.checkbox {
+			margin-right: 1.95vw;
+		}
+	}
+	&__description {
+		margin-top: 2px;
+		font-size: 14px;
+		span {
+			font-size: 28px;
+		}
+	}
+	&__row {
+		justify-content: space-between;
+	}
+	&-radio {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		border-radius: 0.39vw;
+		padding: 1.4vw 1.72vw 0.75vw 1.72vw;
+		border: 1px solid rgb(218, 218, 218);
+		&_big {
+			padding: 1.4vw 1.72vw 1.1vw 1.72vw;
+			margin-bottom: 10px;
+		}
+		&__name {
+			font-family: $ff;
+			font-size: $fz-30;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.2;
+			margin-right: 12px;
+			padding-top: 0.26vw;
+			margin-bottom: 0.4vw;
+			span {
+				color: $brown;
+			}
+		}
+		&__item {
+			margin-right: 1.4vw;
+			margin-bottom: 0.4vw;
+			&:last-child {
+				margin-right: 0;
+			}
+			label {
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+			}
+		}
+		&__box {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			flex: 0 0 30px;
+			border-radius: 50%;
+			border: 1px solid $bl;
+			margin-right: 8px;
+			position: relative;
+			&:after {
+				content: "";
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background-color: $bl;
+				@include center-pos;
+				opacity: 0;
+				transition: all .2s linear;
+			}
+			@media(min-width: 2700px) {
+				margin-right: 12px;
+				width: 45px;
+				height: 45px;
+				flex: 0 0 45px;
+				&:after {
+					width: 30px;
+					height: 30px;
+				}
+			}
+		}
+		&__description {
+			font-family: $ff;
+			font-size: $fz-26;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.4;
+			padding-top: 0.26vw;
+			&_sub {
+				margin-bottom: -1.015625vw;
+			}
+			span {
+				white-space: nowrap;
+				display: block;
+				font-size: $fz-18;
+				color: $brown;
+				margin-top: -0.2vw;
+			}
+		}
+		input {
+			display: none;
+			&:checked + label {
+				.form-radio__box {
+					background-color: $yellow;
+					&:after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	&__option {
+		margin-top: 2.34vw;
+		margin-bottom: 3.125vw;
+		border-bottom: 1px solid $bl;
+		padding-bottom: 2.1vw;
+		&-inner {
+			display: flex;
+		}
+		&-col {
+			margin-right: 8.32vw;
+			&:last-child {
+				margin-right: 0;
+			}
+			.checkbox {
+				margin-bottom: 1.09vw;
+			}
+		}
+	}
 }
 /*============/form===========*/
+
+/*===========Checkbox========*/
+.checkbox {
+	label {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		span {
+			&:first-child {
+				display: inline-block;
+				width: 1.171875vw;
+				height: 1.171875vw;
+				border-radius: 0.195vw;
+				border: 1px solid $bl;
+				margin-right: 9px;
+				position: relative;
+				&:after {
+					content: "";
+					width: 0.586vw;
+					height: 0.41vw;
+					background: url("../images/check.svg") center no-repeat;
+					background-size: contain;
+					@include center-pos;
+					opacity: 0;
+					transition: all .2s linear;
+				}
+			}
+			&:nth-child(2) {
+				font-family: $ff;
+				font-size: 0.9375vw;
+				font-weight: 400;
+				line-height: 1.4;
+				color: $bl;
+				padding-top: 0.26vw;
+				span {
+					color: $brown;
+				}
+			}
+		}
+		 a {
+		 	color: $bl;
+		 	text-decoration: underline;
+		 }
+	}
+	input {
+		display: none;
+		&:checked + label {
+			span {
+				&:first-child {
+					background-color: $yellow;
+					&:after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+/*===========/checkbox========*/
 
 /*========Jq-selectbox=======*/
 .jq-selectbox {
@@ -167,7 +506,138 @@
 }
 /*========/jq-selectbox=======*/
 
+/*==========Selectbox========*/
+.selectbox {
+	cursor: pointer;
+	display: block;
+	background-color: $wh;
+	border-radius: 0.39vw;
+	padding: 1.4vw 1.72vw 1.25vw 1.72vw;
+	border: 1px solid $bl;
+	font-family: $ff;
+	font-size: $fz-30;
+	font-weight: 400;
+	color: $bl;
+	line-height: 1.4;
+	transition: all .3s linear;
+	position: relative;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	&__select {
+		width: 100%;
+		min-height: 1.6vw;
+		transition: all .2s linear;
+		position: relative;
+		&:before {
+			content: "";
+			width: 0.625vw;
+			height: 0.8vw;
+			background: url("../images/arrow-down.svg") center no-repeat;
+			background-size: contain;
+			position: absolute;
+			top: 50%;
+			right: -0.05vw;
+			z-index: 1;
+			transform: translate(0, -50%) rotate(0deg);
+			transition: all .3s linear;
+		}
+		&.active {
+			&:before {
+				transform: translate(0, -50%) rotate(180deg);
+			}
+		}
+	}
+	&__select, &__option {
+		span {
+			font-family: $ff;
+			font-size: $fz-30;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.4;
+			transition: all .3s linear;
+		}
+	}
+	&__option {
+		padding: 1.05vw 1.72vw 1.05vw 1.72vw;
+		border-bottom: 1px solid $bl;
+		transition: all .3s linear;
+		&:hover {
+			background-color: $yellow;
+		}
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+	&__dropdown {
+		overflow: hidden;
+		display: none;
+		width: calc(100% + 2px);
+		position: absolute;
+		top: calc(100% - 5px);
+		left: -1px;
+		z-index: 50;
+		background-color: $wh;
+		border-radius: 0 0 0.39vw 0.39vw;
+		border: 1px solid $bl;
+	}
+	&__inner {
+		display: flex;
+		flex-direction: column;
+	}
+	&__label {
+		position: absolute;
+		top: 1.4vw;
+		left: 1.72vw;
+		font-family: $ff;
+		font-size: $fz-30;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1.4;
+		span {
+			color: $brown;
+			&:last-child {
+				font-size: 0.86vw;
+				display: inline-block;
+				margin-left: 0.5vw;
+			}
+		}
+		&.hide {
+			font-size: $fz-18;
+  			top: 0.5vw;
+  			transform: translate(0, 0);
+  			span {
+  				font-size: 0.55vw;
+  			}
+		}
+	}
+}
+/*==========/selectbox========*/
+
 /*=============Adaptive===========*/
+@media(max-width: 1920px) {
+	.form {
+		&-radio {
+			&__box {
+				width: 22px;
+				height: 22px;
+				flex: 0 0 22px;
+				&:after {
+					width: 14px;
+					height: 14px;
+				}
+			}
+			&__description {
+				font-size: 18px;
+				padding-top: 4px;
+				&_sub {
+					margin-bottom: -17px;
+				}
+				span {
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
 @media(max-width: 1180px) {
 	.form {
 		&-radiobox {
@@ -188,6 +658,151 @@
 				}
 			}
 		}
+		&__item {
+			margin-bottom: 10px;
+		}
+		&__inner {
+			margin-bottom: -10px;
+			margin-left: -10px;
+			>* {
+				margin-left: 10px;
+			}
+			.form__item {
+				&_half {
+					width: calc(50% - 10px);
+				}
+			}
+		}
+		&-input {
+			input, textarea {
+				padding: 22px 48px 18px 24px;
+				border-radius: 10px;
+				font-size: 20px;
+				&.active + label {
+					font-size: 12px;
+					top: 5px;
+					.brown {
+						font-size: 10px;
+					}
+				}
+			}
+			textarea {
+				height: 230px;
+			}
+			label {
+				top: 21px;
+				left: 24px;
+				font-size: 20px;
+				span {
+					&.brown {
+						font-size: 15px;
+					}
+				}
+			}
+			&.active {
+				label {
+					font-size: 12px;
+					top: 5px;
+					.brown {
+						font-size: 10px;
+					}
+				}
+			}
+			&.fill {
+				&:after {
+					top: 26px;
+					right: 24px;
+					width: 14px;
+					height: 10px;
+				}
+			}
+			&.error {
+				&:after {
+					width: 12px;
+					height: 12px;
+					right: 24px;
+				}
+			}
+			&__error {
+				font-size: 12px;
+				left: 24px;
+				top: 5px;
+			}
+		}
+		&-radio {
+			padding: 22px 24px 13.5px 24px;
+			border-radius: 10px;
+			&__name {
+				font-size: 20px;
+				margin-bottom: 5px;
+			}
+			&__item {
+				margin-bottom: 5px;
+				margin-right: 20px;
+			}
+		}
+	}
+	.selectbox {
+		padding: 22px 48px 18px 24px;
+		border-radius: 10px;
+		&__select {
+			min-height: 28px;
+			span {
+				font-size: 20px;
+			}
+			&:before {
+				width: 12px;
+				height: 15px;
+				right: -22px;
+			}
+		}
+		&__dropdown {
+			border-radius: 0 0 10px 10px;
+		}
+		&__label {
+			font-size: 20px;
+			top: 21px;
+			left: 24px;
+			span {
+				&:last-child {
+					font-size: 15px;
+				}
+				&.mobile-none {
+					display: none;
+				}
+			}
+			&.hide {
+				font-size: 12px;
+				span {
+					font-size: 10px;
+				}
+			}
+		}
+		&__option {
+			padding: 14px 24px;
+			span {
+				font-size: 20px;
+			}
+		}
+	}
+	.checkbox {
+		label {
+			span {
+				&:first-child {
+					width: 24px;
+					height: 24px;
+					flex: 0 0 24px;
+					border-radius: 5px;
+					&:after {
+						width: 12px;
+						height: 8.5px;
+					}
+				}
+				&:nth-child(2) {
+					font-size: 16px;
+				}
+			}
+		}
 	}
 	.jq-selectbox {
 		&:before {
@@ -204,6 +819,109 @@
 			li {
 				font-size: 20px;
 				padding: 10px;
+			}
+		}
+	}
+}
+
+@media(max-width: 760px) {
+	.form {
+		&__inner {
+			.form__item {
+				&_half {
+					width: 100%;
+				}
+			}
+		}
+		&-radio {
+			&_big {
+				display: block;
+				padding-bottom: 10px;
+				.form-radio {
+					&__name {
+						margin-right: 0;
+						margin-bottom: 14px;
+					}
+				}
+				.form-radio__item {
+					margin-right: 0;
+					margin-bottom: 18px;
+				}
+			}
+			&__description {
+				&_sub {
+					margin-bottom: 0;
+					span {
+						display: inline-block;
+						margin-top: 0;
+						margin-left: 7px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 640px) {
+	.form {
+		&__row {
+			display: block;
+			margin-top: 30px;
+			.checkbox {
+				margin-right: 0;
+				margin-bottom: 20px;
+				label {
+					align-items: flex-start;
+				}
+			}
+		}
+		&__option {
+			padding-bottom: 10px;
+			margin-bottom: 30px;
+			margin-top: 20px;
+			&-inner {
+				display: block;
+			}
+			&-col {
+				margin-right: 0;
+				.checkbox {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 390px) {
+	.form {
+		&-input {
+			input, textarea {
+				font-size: 16px;
+			}
+			label {
+				font-size: 16px;
+			}
+		}
+	}
+	.selectbox {
+		&__select {
+			min-height: 22px;
+			span {
+				font-size: 16px;
+			}
+		}
+		&__label {
+			font-size: 16px;
+			span {
+				&:last-child {
+					margin-left: 5px;
+					font-size: 12px;
+				}
+			}
+		}
+		&__option {
+			span {
+				font-size: 18px;
 			}
 		}
 	}

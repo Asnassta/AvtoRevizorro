@@ -1,3 +1,11 @@
+function tabs(n)
+{
+  $('.tabs-nav a').removeClass('active');
+  $('.tabs-nav a.t'+n).addClass('active');
+  $('.tabs-block').fadeOut(0);
+  $('.tabs-block.tab_'+n).fadeIn(333);
+};
+
 $(document).ready(function() {
 	/*========Mobile-menu=========*/
   $(".header__burger").on("click", function(event) {
@@ -119,7 +127,7 @@ $(window).scroll(function() {
  
     $("html, body").animate ({
       scrollTop: blockOffset - 130
-    }, 1000);
+    }, 2000);
   });
 /*=========/smooth scroll=============*/
 
@@ -178,6 +186,65 @@ $(window).scroll(function() {
   });
   /*======/select-styler=============*/
 
+  /*==========Label===========*/
+$('.form-input input, .form-input textarea').each(function() {
+ 
+ if($(this).val() == 0)
+ {
+   $(this).removeClass('active');
+   $(this).parent().removeClass('fill');
+ }
+ else
+ {
+   $(this).addClass('active');
+   $(this).parent().addClass('fill');
+ }
+});
+
+ $('.form-input input, .form-input textarea').on('input', function() {
+ if($(this).val().length == 0)
+ {
+   $(this).removeClass('active');
+   $(this).parent().removeClass('fill');
+   
+ }
+ else
+ {
+   $(this).addClass('active');
+   $(this).parent().addClass('fill');
+ }
+
+});
+$( "body" ).delegate( "*", "focus blur", function() {
+  var elem =  $(this);
+  setTimeout(function() {
+    if((elem).attr('type') == 'text' || (elem).attr('type') == 'password'
+                              || (elem).attr('type') == 'email')
+
+    {
+      elem.parent().toggleClass( "active", elem.is( ":focus" ) );
+    }
+  }, 0 );
+});
+ /*==========label===========*/
+
+ /*======Selectbox=============*/
+  $(".selectbox").on("click", function(event) {
+    event.preventDefault();
+    $(this).find('.selectbox__dropdown').slideToggle(222);
+    $(this).find('.selectbox__select').toggleClass('active');
+  });
+
+
+  $(".selectbox__option").on("click", function(event) {
+    event.preventDefault();
+    $('.selectbox__select').html($(this).html());
+    $('.selectbox__label').addClass('hide');
+    $(this).addClass('selected');
+    $(".selectbox__option").not(this).removeClass('selected');
+  });
+  /*==========/selectbox=========*/
+
   /*=================Sliders===================*/
 	/*========Stat__slider========*/
   	new Swiper('.stat__slider', {
@@ -202,7 +269,7 @@ $(window).scroll(function() {
 /*=======/stat__slider========*/
 
 /*========Car__slider========*/
-  	new Swiper('.cars__slider', {
+  new Swiper('.cars__slider', {
     slidesPerView: 1,
     spaceBetween: 206,
     //loop: true,
@@ -210,7 +277,7 @@ $(window).scroll(function() {
     navigation: {
     	prevEl: '.slider-arrow_prev',
 	  	nextEl: '.slider-arrow_next',
-	},
+	 },
     breakpoints: {
     	320: {
           spaceBetween: 13,
@@ -232,7 +299,7 @@ $(window).scroll(function() {
 /*=======/cars__slider========*/
 
 /*========Steps__slider========*/
-  	new Swiper('.steps__slider', {
+  new Swiper('.steps__slider', {
     slidesPerView: 1.265,
     spaceBetween: 111,
     loop: true,
@@ -270,7 +337,7 @@ $(window).scroll(function() {
 /*=======/steps__slider========*/
 
 /*========Social__slider========*/
-  	new Swiper('.social__slider', {
+  new Swiper('.social__slider', {
     slidesPerView: 'auto',
     spaceBetween: 20,
     loop: true,
@@ -301,9 +368,79 @@ $(window).scroll(function() {
         },
       }
   });
+/*========/social__slider========*/
 
+/*========Certificates__slider========*/
+  new Swiper('.certificates', {
+    slidesPerView: 1.5,
+    spaceBetween: 111,
+    loop: true,
+    resizeReInit: true,
+    navigation: {
+      nextEl: '.slider-arrow_next',
+    },
+    breakpoints: {
+      320: {
+          spaceBetween: 24,
+          slidesPerView: 1.2,
+        },
+        540: {
+          spaceBetween: 33,
+          slidesPerView: 1.5,
+        },
+        760: {
+          spaceBetween: 33,
+          slidesPerView: 1.5,
+        },
+        1200: {
+          spaceBetween: 38,
+          slidesPerView: 1.5,
+        },
+        1440: {
+          spaceBetween: 46,
+          slidesPerView: 1.5,
+        },
+        1920: {
+          spaceBetween: 62,
+          slidesPerView: 1.5,
+        },
+        2560: {
+          spaceBetween: 83,
+          slidesPerView: 1.5,
+        },
+        3000: {
+          spaceBetween: 110,
+          slidesPerView: 1.5,
+        },
+      }
+  });
+/*=======/certificates__slider========*/
 
+/*========Certificates__slider========*/
+  new Swiper('.photo-slider__inner', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    resizeReInit: true,
+    navigation: {
+      prevEl: '.slider-arrow_prev',
+      nextEl: '.slider-arrow_next',
+    },
+    breakpoints: {
+      320: {
+          spaceBetween: 20,
+          slidesPerView: 1.1,
+        },
+        860: {
+          spaceBetween: 20,
+          slidesPerView: 1,
+        },
+      }
+  });
+/*=======/photo-slider========*/
 
  /*=================Sliders===================*/
 
 });
+
+

@@ -635,6 +635,32 @@
   100% {
     opacity: 1; } }
 
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(0); }
+  25% {
+    opacity: 1;
+    transform: translateX(0); }
+  50% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    transform: translateX(-60vw); } }
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(0); }
+  25% {
+    opacity: 1;
+    transform: translateX(0); }
+  50% {
+    opacity: 1;
+    transform: translateX(0); }
+  100% {
+    transform: translateX(60vw); } }
+
 /*============Popup==========*/
 .popup {
   width: 100%;
@@ -713,7 +739,284 @@
       .form-radiobox input:checked + label span:first-child:after {
         opacity: 1; }
 
+.form-input {
+  position: relative; }
+  .form-input input, .form-input textarea {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0.39vw;
+    padding: 1.4vw 3vw 1.2vw 1.72vw;
+    border: 1px solid #201d17;
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.17vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    transition: all .3s linear; }
+    .form-input input::placeholder, .form-input textarea::placeholder {
+      color: #201d17;
+      opacity: 0;
+      transition: all .3s linear; }
+    .form-input input:focus, .form-input textarea:focus {
+      background-color: #fff555; }
+      .form-input input:focus::placeholder, .form-input textarea:focus::placeholder {
+        opacity: 1; }
+    .form-input input.active + label, .form-input textarea.active + label {
+      font-size: 0.7vw;
+      top: 0.5vw;
+      transform: translate(0, 0); }
+      .form-input input.active + label span, .form-input textarea.active + label span {
+        font-size: 0.55vw; }
+  .form-input textarea {
+    min-height: 15.39vw;
+    resize: none; }
+  .form-input label {
+    padding-top: 0.15vw;
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.17vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    transition: all .3s linear;
+    position: absolute;
+    top: 1.4vw;
+    left: 1.72vw;
+    z-index: 1; }
+    .form-input label span {
+      color: #594f3c; }
+      .form-input label span.brown {
+        font-size: 0.85vw;
+        margin-left: 11px; }
+  .form-input__error {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 0.7vw;
+    font-weight: 400;
+    color: #e70505;
+    line-height: 1.4;
+    transition: all .3s linear;
+    position: absolute;
+    top: 0.5vw;
+    left: 1.72vw;
+    z-index: 1;
+    visibility: hidden; }
+  .form-input.active label {
+    font-size: 0.7vw;
+    top: 0.5vw;
+    transform: translate(0, 0); }
+    .form-input.active label .brown {
+      font-size: 0.5vw; }
+  .form-input.fill:after {
+    content: "";
+    width: 0.78vw;
+    height: 0.54vw;
+    background: url("../images/check-inp.svg") center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1.7vw;
+    right: 1.72vw;
+    z-index: 1; }
+  .form-input.error .form-input__error {
+    visibility: visible; }
+  .form-input.error:after {
+    content: "";
+    width: 0.54vw;
+    height: 0.54vw;
+    background: url("../images/close-red.svg") center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    right: 1.72vw;
+    transform: translate(0, -50%);
+    z-index: 1; }
+  .form-input.error input {
+    border-color: #e70505; }
+    .form-input.error input.active + label {
+      opacity: 0; }
+  .form-input.error.active label {
+    opacity: 0; }
+
+.form__inner {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-bottom: -20px; }
+  .form__inner > * {
+    margin-left: 20px;
+    margin-bottom: 20px; }
+  .form__inner .form__item {
+    width: 100%; }
+    .form__inner .form__item_half {
+      width: calc(50% - 20px); }
+
+.form__description {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 0.625vw;
+  margin-top: 0.78vw; }
+  .form__description span {
+    color: #594f3c;
+    font-size: 1vw; }
+
+.form__row {
+  margin-top: 5px;
+  display: flex;
+  align-items: center; }
+  .form__row .checkbox {
+    margin-right: 1.95vw; }
+
+.form__description {
+  margin-top: 2px;
+  font-size: 14px; }
+  .form__description span {
+    font-size: 28px; }
+
+.form__row {
+  justify-content: space-between; }
+
+.form-radio {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 0.39vw;
+  padding: 1.4vw 1.72vw 0.75vw 1.72vw;
+  border: 1px solid #dadada; }
+  .form-radio_big {
+    padding: 1.4vw 1.72vw 1.1vw 1.72vw;
+    margin-bottom: 10px; }
+  .form-radio__name {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.17vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.2;
+    margin-right: 12px;
+    padding-top: 0.26vw;
+    margin-bottom: 0.4vw; }
+    .form-radio__name span {
+      color: #594f3c; }
+  .form-radio__item {
+    margin-right: 1.4vw;
+    margin-bottom: 0.4vw; }
+    .form-radio__item:last-child {
+      margin-right: 0; }
+    .form-radio__item label {
+      display: flex;
+      align-items: center;
+      cursor: pointer; }
+  .form-radio__box {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 50%;
+    border: 1px solid #201d17;
+    margin-right: 8px;
+    position: relative; }
+    .form-radio__box:after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #201d17;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0;
+      transition: all .2s linear; }
+    @media (min-width: 2700px) {
+      .form-radio__box {
+        margin-right: 12px;
+        width: 45px;
+        height: 45px;
+        flex: 0 0 45px; }
+        .form-radio__box:after {
+          width: 30px;
+          height: 30px; } }
+  .form-radio__description {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.01563vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    padding-top: 0.26vw; }
+    .form-radio__description_sub {
+      margin-bottom: -1.015625vw; }
+    .form-radio__description span {
+      white-space: nowrap;
+      display: block;
+      font-size: 0.7vw;
+      color: #594f3c;
+      margin-top: -0.2vw; }
+  .form-radio input {
+    display: none; }
+    .form-radio input:checked + label .form-radio__box {
+      background-color: #fff555; }
+      .form-radio input:checked + label .form-radio__box:after {
+        opacity: 1; }
+
+.form__option {
+  margin-top: 2.34vw;
+  margin-bottom: 3.125vw;
+  border-bottom: 1px solid #201d17;
+  padding-bottom: 2.1vw; }
+  .form__option-inner {
+    display: flex; }
+  .form__option-col {
+    margin-right: 8.32vw; }
+    .form__option-col:last-child {
+      margin-right: 0; }
+    .form__option-col .checkbox {
+      margin-bottom: 1.09vw; }
+
 /*============/form===========*/
+/*===========Checkbox========*/
+.checkbox label {
+  display: flex;
+  align-items: center;
+  cursor: pointer; }
+  .checkbox label span:first-child {
+    display: inline-block;
+    width: 1.171875vw;
+    height: 1.171875vw;
+    border-radius: 0.195vw;
+    border: 1px solid #201d17;
+    margin-right: 9px;
+    position: relative; }
+    .checkbox label span:first-child:after {
+      content: "";
+      width: 0.586vw;
+      height: 0.41vw;
+      background: url("../images/check.svg") center no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0;
+      transition: all .2s linear; }
+  .checkbox label span:nth-child(2) {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 0.9375vw;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #201d17;
+    padding-top: 0.26vw; }
+    .checkbox label span:nth-child(2) span {
+      color: #594f3c; }
+  .checkbox label a {
+    color: #201d17;
+    text-decoration: underline; }
+
+.checkbox input {
+  display: none; }
+  .checkbox input:checked + label span:first-child {
+    background-color: #fff555; }
+    .checkbox input:checked + label span:first-child:after {
+      opacity: 1; }
+
+/*===========/checkbox========*/
 /*========Jq-selectbox=======*/
 .jq-selectbox {
   width: 100%;
@@ -797,7 +1100,110 @@
         height: 100%; }
 
 /*========/jq-selectbox=======*/
+/*==========Selectbox========*/
+.selectbox {
+  cursor: pointer;
+  display: block;
+  background-color: #ffffff;
+  border-radius: 0.39vw;
+  padding: 1.4vw 1.72vw 1.25vw 1.72vw;
+  border: 1px solid #201d17;
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.17vw;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.4;
+  transition: all .3s linear;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  .selectbox__select {
+    width: 100%;
+    min-height: 1.6vw;
+    transition: all .2s linear;
+    position: relative; }
+    .selectbox__select:before {
+      content: "";
+      width: 0.625vw;
+      height: 0.8vw;
+      background: url("../images/arrow-down.svg") center no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      right: -0.05vw;
+      z-index: 1;
+      transform: translate(0, -50%) rotate(0deg);
+      transition: all .3s linear; }
+    .selectbox__select.active:before {
+      transform: translate(0, -50%) rotate(180deg); }
+  .selectbox__select span, .selectbox__option span {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.17vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    transition: all .3s linear; }
+  .selectbox__option {
+    padding: 1.05vw 1.72vw 1.05vw 1.72vw;
+    border-bottom: 1px solid #201d17;
+    transition: all .3s linear; }
+    .selectbox__option:hover {
+      background-color: #fff555; }
+    .selectbox__option:last-child {
+      border-bottom: none; }
+  .selectbox__dropdown {
+    overflow: hidden;
+    display: none;
+    width: calc(100% + 2px);
+    position: absolute;
+    top: calc(100% - 5px);
+    left: -1px;
+    z-index: 50;
+    background-color: #ffffff;
+    border-radius: 0 0 0.39vw 0.39vw;
+    border: 1px solid #201d17; }
+  .selectbox__inner {
+    display: flex;
+    flex-direction: column; }
+  .selectbox__label {
+    position: absolute;
+    top: 1.4vw;
+    left: 1.72vw;
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.17vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4; }
+    .selectbox__label span {
+      color: #594f3c; }
+      .selectbox__label span:last-child {
+        font-size: 0.86vw;
+        display: inline-block;
+        margin-left: 0.5vw; }
+    .selectbox__label.hide {
+      font-size: 0.7vw;
+      top: 0.5vw;
+      transform: translate(0, 0); }
+      .selectbox__label.hide span {
+        font-size: 0.55vw; }
+
+/*==========/selectbox========*/
 /*=============Adaptive===========*/
+@media (max-width: 1920px) {
+  .form-radio__box {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px; }
+    .form-radio__box:after {
+      width: 14px;
+      height: 14px; }
+  .form-radio__description {
+    font-size: 18px;
+    padding-top: 4px; }
+    .form-radio__description_sub {
+      margin-bottom: -17px; }
+    .form-radio__description span {
+      font-size: 15px; } }
+
 @media (max-width: 1180px) {
   .form-radiobox label span:first-child {
     width: 24px;
@@ -808,6 +1214,98 @@
       height: 8.5px; }
   .form-radiobox label span:nth-child(2) {
     font-size: 18px; }
+  .form__item {
+    margin-bottom: 10px; }
+  .form__inner {
+    margin-bottom: -10px;
+    margin-left: -10px; }
+    .form__inner > * {
+      margin-left: 10px; }
+    .form__inner .form__item_half {
+      width: calc(50% - 10px); }
+  .form-input input, .form-input textarea {
+    padding: 22px 48px 18px 24px;
+    border-radius: 10px;
+    font-size: 20px; }
+    .form-input input.active + label, .form-input textarea.active + label {
+      font-size: 12px;
+      top: 5px; }
+      .form-input input.active + label .brown, .form-input textarea.active + label .brown {
+        font-size: 10px; }
+  .form-input textarea {
+    height: 230px; }
+  .form-input label {
+    top: 21px;
+    left: 24px;
+    font-size: 20px; }
+    .form-input label span.brown {
+      font-size: 15px; }
+  .form-input.active label {
+    font-size: 12px;
+    top: 5px; }
+    .form-input.active label .brown {
+      font-size: 10px; }
+  .form-input.fill:after {
+    top: 26px;
+    right: 24px;
+    width: 14px;
+    height: 10px; }
+  .form-input.error:after {
+    width: 12px;
+    height: 12px;
+    right: 24px; }
+  .form-input__error {
+    font-size: 12px;
+    left: 24px;
+    top: 5px; }
+  .form-radio {
+    padding: 22px 24px 13.5px 24px;
+    border-radius: 10px; }
+    .form-radio__name {
+      font-size: 20px;
+      margin-bottom: 5px; }
+    .form-radio__item {
+      margin-bottom: 5px;
+      margin-right: 20px; }
+  .selectbox {
+    padding: 22px 48px 18px 24px;
+    border-radius: 10px; }
+    .selectbox__select {
+      min-height: 28px; }
+      .selectbox__select span {
+        font-size: 20px; }
+      .selectbox__select:before {
+        width: 12px;
+        height: 15px;
+        right: -22px; }
+    .selectbox__dropdown {
+      border-radius: 0 0 10px 10px; }
+    .selectbox__label {
+      font-size: 20px;
+      top: 21px;
+      left: 24px; }
+      .selectbox__label span:last-child {
+        font-size: 15px; }
+      .selectbox__label span.mobile-none {
+        display: none; }
+      .selectbox__label.hide {
+        font-size: 12px; }
+        .selectbox__label.hide span {
+          font-size: 10px; }
+    .selectbox__option {
+      padding: 14px 24px; }
+      .selectbox__option span {
+        font-size: 20px; }
+  .checkbox label span:first-child {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border-radius: 5px; }
+    .checkbox label span:first-child:after {
+      width: 12px;
+      height: 8.5px; }
+  .checkbox label span:nth-child(2) {
+    font-size: 16px; }
   .jq-selectbox:before {
     width: 16px;
     height: 16px; }
@@ -818,6 +1316,62 @@
   .jq-selectbox__dropdown li {
     font-size: 20px;
     padding: 10px; } }
+
+@media (max-width: 760px) {
+  .form__inner .form__item_half {
+    width: 100%; }
+  .form-radio_big {
+    display: block;
+    padding-bottom: 10px; }
+    .form-radio_big .form-radio__name {
+      margin-right: 0;
+      margin-bottom: 14px; }
+    .form-radio_big .form-radio__item {
+      margin-right: 0;
+      margin-bottom: 18px; }
+  .form-radio__description_sub {
+    margin-bottom: 0; }
+    .form-radio__description_sub span {
+      display: inline-block;
+      margin-top: 0;
+      margin-left: 7px; } }
+
+@media (max-width: 640px) {
+  .form__row {
+    display: block;
+    margin-top: 30px; }
+    .form__row .checkbox {
+      margin-right: 0;
+      margin-bottom: 20px; }
+      .form__row .checkbox label {
+        align-items: flex-start; }
+  .form__option {
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px; }
+    .form__option-inner {
+      display: block; }
+    .form__option-col {
+      margin-right: 0; }
+      .form__option-col .checkbox {
+        margin-bottom: 20px; } }
+
+@media (max-width: 390px) {
+  .form-input input, .form-input textarea {
+    font-size: 16px; }
+  .form-input label {
+    font-size: 16px; }
+  .selectbox__select {
+    min-height: 22px; }
+    .selectbox__select span {
+      font-size: 16px; }
+  .selectbox__label {
+    font-size: 16px; }
+    .selectbox__label span:last-child {
+      margin-left: 5px;
+      font-size: 12px; }
+  .selectbox__option span {
+    font-size: 18px; } }
 
 /*=============/adaptive===========*/
 /*Reset
@@ -889,7 +1443,13 @@ body.hidden {
 
 .wrapper {
   overflow: hidden;
-  padding-top: 6.09375vw; }
+  padding-top: 6.09375vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
+.main {
+  flex: 1 1 auto; }
 
 .container {
   width: 100%;
@@ -927,11 +1487,30 @@ body.hidden {
   color: #201d17;
   line-height: 1.1; }
 
+.title-small {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 2.73vw;
+  font-weight: 500;
+  color: #201d17;
+  line-height: .82; }
+
+.mb-20 {
+  margin-bottom: 20px; }
+
 .mb-50 {
   margin-bottom: 1.953125vw; }
 
 .mb-45 {
   margin-bottom: 1.7578vw; }
+
+.mb-96 {
+  margin-bottom: 3.75vw; }
+
+.mb-130 {
+  margin-bottom: 5.078vw; }
+
+.mb-70 {
+  margin-bottom: 2.73vw; }
 
 .brown {
   color: #594f3c; }
@@ -1008,6 +1587,22 @@ body.hidden {
     @media (min-width: 1181px) {
       .btn_gray:hover svg {
         fill: #fff555; } }
+  .btn_transparent {
+    background: none;
+    border: 1px solid #201d17;
+    padding: 0.625vw 0.625vw 0.625vw 1.40625vw; }
+    .btn_transparent span:first-child {
+      color: #201d17; }
+    .btn_transparent img {
+      width: 0.98vw;
+      min-width: 18px; }
+    @media (min-width: 1181px) {
+      .btn_transparent:hover:after {
+        visibility: visible;
+        width: calc(100% + 3.5px);
+        height: calc(100% + 3.5px);
+        transform: translate(0.82031vw, -50%);
+        right: 0.72vw; } }
 
 .btn-download {
   display: flex; }
@@ -1138,8 +1733,7 @@ body.hidden {
 
 .scroll-link {
   display: inline-flex;
-  align-items: center;
-  cursor: pointer; }
+  align-items: center; }
   .scroll-link span {
     font-family: "Aeonik Pro", sans-serif;
     font-size: 0.9375vw;
@@ -1149,6 +1743,11 @@ body.hidden {
     margin-right: 1.171875vw; }
   .scroll-link img {
     width: 0.625vw; }
+
+.tab_2, .tab_3,
+.tab_4, .tab_5, .tab_6,
+.tab_7, .tab_8, .tab_9 {
+  display: none; }
 
 /*==========Page-slider=========*/
 .page-slider {
@@ -1251,6 +1850,30 @@ body.hidden {
   overflow: hidden; }
   .intro__inner {
     position: relative; }
+  .intro__logo {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    z-index: 10; }
+    .intro__logo img:first-child {
+      width: 20vw;
+      animation-delay: .3s;
+      animation-duration: 3s;
+      animation-fill-mode: both;
+      animation-name: slideInLeft;
+      transition: all .4s linear;
+      margin-right: -2vw; }
+    .intro__logo img:nth-child(2) {
+      width: 15vw;
+      animation-delay: .3s;
+      animation-duration: 3s;
+      animation-fill-mode: both;
+      animation-name: slideInRight;
+      transition: all .4s linear;
+      margin-left: -2vw; }
   .intro__content {
     position: absolute;
     top: 0;
@@ -1258,7 +1881,7 @@ body.hidden {
     z-index: 1;
     width: 100%;
     height: 100%;
-    animation-delay: 2s;
+    animation-delay: 2.5s;
     animation-duration: 3s;
     animation-fill-mode: both;
     animation-name: slideUpGrow; }
@@ -1297,11 +1920,11 @@ body.hidden {
       animation-fill-mode: both;
       animation-name: slideUp; }
       .intro__title span:first-child {
-        animation-delay: 5s; }
+        animation-delay: 5.5s; }
       .intro__title span:nth-child(2) {
-        animation-delay: 5.1s; }
+        animation-delay: 5.6s; }
       .intro__title span:nth-child(3) {
-        animation-delay: 5.2s; }
+        animation-delay: 5.7s; }
   .intro__subtitle {
     font-size: 3.3125vw;
     font-family: "Aeonik Pro", sans-serif;
@@ -1311,7 +1934,7 @@ body.hidden {
     animation-duration: .8s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 5.4s;
+    animation-delay: 5.8s;
     margin-bottom: 10px; }
   .intro__description {
     font-family: "Aeonik Pro", sans-serif;
@@ -1322,7 +1945,7 @@ body.hidden {
     animation-duration: .8s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 5.4s; }
+    animation-delay: 5.8s; }
   .intro__btn {
     margin-left: auto;
     position: absolute;
@@ -1335,7 +1958,7 @@ body.hidden {
     animation-duration: .8s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 5s; }
+    animation-delay: 5.5s; }
     .intro__btn:before {
       content: "";
       width: 1.145833vw;
@@ -1804,6 +2427,10 @@ body.hidden {
   .cars .slider-arrows.min .slider-arrow_prev-min,
   .cars .slider-arrows.min .slider-arrow_next-min {
     display: block; }
+  .cars_page .cars__item {
+    margin-bottom: 1.95vw; }
+    .cars_page .cars__item:last-child {
+      margin-bottom: 0; }
   .cars__header {
     display: flex;
     align-items: center;
@@ -1815,16 +2442,45 @@ body.hidden {
   .cars__photo {
     width: calc(50% - 7.5px);
     position: relative; }
+    .cars__photo__content {
+      border-radius: calc(100vw * 0.005859);
+      overflow: hidden;
+      height: 100%; }
     .cars__photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: calc(100vw * 0.005859); }
+      border-radius: calc(100vw * 0.005859);
+      transition: all .3s linear; }
     .cars__photo .btn-plus {
       position: absolute;
       left: 3.125vw;
       bottom: 3.125vw;
       z-index: 1; }
+    .cars__photo:hover img {
+      transform: scale(1.05); }
+  .cars__status {
+    display: inline-block;
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.37vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1;
+    padding: 0.39vw 0.39vw 0.1vw 0.39vw;
+    border-radius: 0.39vw;
+    background: linear-gradient(180deg, #fff555, #e8c185 100%);
+    border: 1px solid #201d17;
+    position: absolute;
+    top: 1.17vw;
+    left: 1.17vw;
+    z-index: 1;
+    text-transform: uppercase; }
+    .cars__status-sale {
+      background: linear-gradient(180deg, #201d17, #46433d 100%);
+      color: #ffffff;
+      border-color: #ffffff; }
+    .cars__status-none {
+      display: none; }
   .cars__info {
     margin-left: 15px;
     width: calc(50% - 7.5px);
@@ -1918,6 +2574,15 @@ body.hidden {
         background-color: #201d17; }
       .cars__btn:hover svg {
         fill: #fff555; } }
+  .cars__row {
+    display: flex;
+    align-items: center; }
+    .cars__row .cars__price {
+      margin-right: 3.125vw;
+      white-space: nowrap; }
+    .cars__row .btn {
+      min-width: auto;
+      flex: 1 1 auto; }
   .cars__price {
     font-family: "Aeonik Pro", sans-serif;
     font-size: 2.5390625vw;
@@ -2047,6 +2712,28 @@ body.hidden {
     font-size: 1.328vw; }
     .diagnostics_check .diagnostics__text p:last-child {
       font-size: 1.01563vw; }
+
+.diagnostics_service .diagnostics__info {
+  padding: 3.125vw; }
+
+.diagnostics_service .diagnostics__photo {
+  width: 47.96vw; }
+
+.diagnostics_service .diagnostics__block {
+  margin-bottom: 40px; }
+  .diagnostics_service .diagnostics__block:last-child {
+    margin-bottom: 0; }
+    .diagnostics_service .diagnostics__block:last-child .diagnostics__text {
+      margin-bottom: 2.73vw; }
+      .diagnostics_service .diagnostics__block:last-child .diagnostics__text p:first-child {
+        font-size: 1.48vw; }
+      .diagnostics_service .diagnostics__block:last-child .diagnostics__text p:last-child {
+        font-size: 0.9375vw; }
+  .diagnostics_service .diagnostics__block .diagnostics__text {
+    font-size: 1.25vw;
+    margin-top: 0.66vw; }
+    .diagnostics_service .diagnostics__block .diagnostics__text p:last-child {
+      font-size: 1.25vw; }
 
 .diagnostics__inner {
   display: flex; }
@@ -2251,15 +2938,16 @@ body.hidden {
     .social__slider:before {
       content: "";
       width: 2000px;
-      height: 100%;
+      height: 110%;
       background-color: #ffffff;
       position: absolute;
-      top: 0;
+      top: -1px;
       left: -1px;
       z-index: 10;
       transform: translateX(-100%); }
   .social__slide {
-    width: auto !important; }
+    width: auto !important;
+    height: 28.32vw !important; }
     .social__slide ::selection {
       background: rgba(255, 255, 255, 0); }
   .social .swiper-slide-next .social__item {
@@ -2448,6 +3136,8 @@ body.hidden {
     animation-duration: 0.8s;
     animation-fill-mode: both;
     animation-name: slideUpM; }
+    .page-intro__row_center {
+      align-items: center; }
   .page-intro__description {
     font-family: "Aeonik Pro", sans-serif;
     font-size: 1.953125vw;
@@ -2460,12 +3150,26 @@ body.hidden {
     animation-delay: .3s;
     animation-duration: 0.8s;
     animation-fill-mode: both;
-    animation-name: fadeIn; }
+    animation-name: fadeIn;
+    overflow: hidden;
+    height: 37.11vw;
+    min-height: 385px;
+    border-radius: 0.585938vw;
+    position: relative; }
+    .page-intro__photo-wrapper {
+      height: 140%;
+      transform: translateY(-15%); }
+      .page-intro__photo-wrapper img {
+        height: 100%; }
+      @media (min-width: 3000px) {
+        .page-intro__photo-wrapper {
+          transform: translateY(-25%); } }
     .page-intro__photo img {
       width: 100%;
-      min-height: 385px;
       object-fit: cover;
-      border-radius: 0.585938vw; }
+      border-radius: 0.585938vw;
+      transition: all .2s linear;
+      position: absolute; }
 
 /*=========/page-intro========*/
 /*==========Guarantees=========*/
@@ -2788,6 +3492,15 @@ body.hidden {
   flex-direction: column;
   justify-content: space-between;
   min-height: 28.125vw; }
+  .service__box-inner {
+    display: flex; }
+  .service__box-info {
+    width: 32vw;
+    margin-right: 23.4vw; }
+  .service__box_big {
+    margin-bottom: 20px; }
+    .service__box_big .service__price {
+      margin-top: -1.04vw; }
 
 .service__title {
   font-family: "Aeonik Pro", sans-serif;
@@ -2799,8 +3512,8 @@ body.hidden {
 
 .service__text {
   font-family: "Aeonik Pro", sans-serif;
-  font-size: 0/9375vw;
-  flex-wrap: 400;
+  font-size: 0.9375vw;
+  font-weight: 400;
   line-height: 1.6;
   margin-bottom: 30px; }
   .service__text span {
@@ -2813,7 +3526,297 @@ body.hidden {
   color: #201d17;
   line-height: 0.9; }
 
+.service__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .service__nav a {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.328vw;
+    font-weight: 400;
+    color: #594f3c;
+    line-height: 1.6;
+    margin-bottom: 2.93vw;
+    transition: all .3s linear;
+    position: relative; }
+    .service__nav a:last-child {
+      margin-bottom: 0; }
+    .service__nav a:before {
+      content: "";
+      width: 3.32vw;
+      height: 0.82vw;
+      background: url("../images/arrow-long_bl.svg") center no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      z-index: 1;
+      transform: translate(-130%, -50%);
+      opacity: 0;
+      transition: all .3s linear; }
+    .service__nav a:hover {
+      color: #201d17; }
+    .service__nav a.active {
+      color: #201d17; }
+      .service__nav a.active:before {
+        opacity: 1;
+        transform: translate(-100%, -50%); }
+
 /*===========/service=======*/
+/*===========Rebmw===========*/
+.rebmw .title {
+  margin-bottom: 3.125vw; }
+
+.rebmw__inner {
+  display: flex; }
+
+.rebmw__info {
+  width: 59vw; }
+
+.rebmw__text {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.64vw;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.6;
+  margin-bottom: 4.6875vw;
+  padding-right: 11.52vw; }
+  .rebmw__text a {
+    color: #201d17;
+    text-decoration: underline;
+    transition: all .3s linear; }
+
+.rebmw__subtext {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.328vw;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.6;
+  padding-left: 24.84vw;
+  margin-bottom: 4.6875vw; }
+
+.rebmw__founder {
+  padding-left: 8.594vw;
+  display: flex; }
+  .rebmw__founder-name {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.5625vw;
+    font-weight: 500;
+    color: #201d17;
+    line-height: 1.6; }
+  .rebmw__founder-stat {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.01563vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.6; }
+  .rebmw__founder-sign img {
+    width: 11.25vw; }
+
+/*===========/rebmw===========*/
+/*==========Certificates==========*/
+.certificates {
+  width: 27vw;
+  margin-right: -9.57vw !important;
+  padding-left: 2vw !important; }
+  .certificates .swiper-slide {
+    transition: all .2s linear; }
+  .certificates .swiper-slide-duplicate-prev,
+  .certificates .swiper-slide-prev {
+    opacity: 0; }
+  .certificates__photo img {
+    width: 100%;
+    box-shadow: 0px 39px 31.7px 0px rgba(0, 0, 0, 0.05); }
+  .certificates__description {
+    margin-top: 1.48vw;
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.01563vw;
+    font-weight: 300;
+    color: #201d17;
+    line-height: 1.6; }
+  .certificates .slider-arrow {
+    position: absolute;
+    top: 10.5vw;
+    left: 15.27vw;
+    z-index: 10; }
+
+/*==========/certificates==========*/
+/*===========Photo-slider=========*/
+.photo-slider__inner {
+  overflow: visible !important; }
+
+.photo-slider__slide img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: calc(100vw * 0.005859); }
+
+.photo-slider .slider-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10; }
+  .photo-slider .slider-arrow_prev {
+    left: 0;
+    transform: translate(-50%, -50%); }
+  .photo-slider .slider-arrow_next {
+    right: 0;
+    transform: translate(50%, -50%); }
+
+/*===========photo-slider=========*/
+/*============Contact===========*/
+.contact .title-main {
+  margin-bottom: 8.28vw; }
+
+.contact__inner {
+  display: flex; }
+
+.contact__sideblock {
+  width: 32.58vw;
+  padding-right: 2.19vw; }
+
+.contact__content {
+  width: 48.05vw; }
+
+.contact__description {
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.95vw;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #201d17; }
+  .contact__description_small {
+    font-size: 1.328vw; }
+  .contact__description_min {
+    font-size: 1.25vw;
+    font-weight: 500; }
+  .contact__description span {
+    font-weight: 500; }
+  .contact__description img {
+    width: 0.66vw;
+    vertical-align: middle;
+    margin-left: 11px; }
+
+.contact__text {
+  font-family: "Aeonik Pro", sans-serif;
+  font-weight: 400;
+  color: #201d17;
+  line-height: 1.6;
+  margin-bottom: 5.078vw; }
+  .contact__text p:first-child {
+    font-size: 1.25vw;
+    margin-bottom: 3.9vw; }
+  .contact__text p:nth-child(2) {
+    font-size: 1.48vw;
+    margin-bottom: 1.75vw;
+    line-height: 1.4; }
+  .contact__text p:nth-child(3) {
+    font-size: 0.9375vw; }
+
+.contact__link {
+  display: inline-block;
+  margin-top: 1.17vw;
+  font-family: "Aeonik Pro", sans-serif;
+  font-size: 1.4vw;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #201d17;
+  margin-bottom: 4.8vw; }
+
+/*============/contact===========*/
+/*========Social-icons==========*/
+.social-icons {
+  display: flex;
+  align-items: center; }
+  .social-icons svg {
+    width: 1.25vw;
+    height: 1.25vw;
+    fill: #201d17;
+    transition: all .3s linear; }
+  .social-icons a {
+    display: inline-block;
+    width: 1.25vw;
+    height: 1.25vw;
+    margin-right: 2.734375vw;
+    transition: all .3s linear; }
+    .social-icons a:nth-child(2) {
+      background-color: #201d17;
+      border-radius: 50%; }
+      .social-icons a:nth-child(2) svg {
+        fill: #ffffff; }
+    .social-icons a:nth-child(3) svg {
+      width: 1.484375vw;
+      height: 1.484375vw; }
+    .social-icons a:nth-child(3) path {
+      transition: all .3s linear; }
+      .social-icons a:nth-child(3) path:first-child {
+        fill: #201d17; }
+      .social-icons a:nth-child(3) path:nth-child(2) {
+        fill: #ffffff; }
+    .social-icons a:last-child {
+      margin-right: 0; }
+    @media (min-width: 1180px) {
+      .social-icons a:hover:first-child svg {
+        fill: #fff555; }
+      .social-icons a:hover:nth-child(2) {
+        background-color: #fff555; }
+      .social-icons a:hover:nth-child(3) path:first-child {
+        fill: #fff555; } }
+
+/*========/social-icons==========*/
+/*==============Map===========*/
+.map {
+  margin-bottom: 3.9vw; }
+  .map__content {
+    width: 100%;
+    height: 27.34vw;
+    min-height: 560px;
+    border-radius: calc(100vw * 0.005859);
+    overflow: hidden; }
+
+[class*="ymaps-2-1"][class*="-ground-pane"] {
+  -webkit-filter: grayscale(100%); }
+
+.ymaps-2-1-79-map-copyrights-promo {
+  display: none; }
+
+.ymaps-2-1-79-gototaxi, .ymaps-2-1-79-gototech {
+  display: none; }
+
+/*==============/map===========*/
+/*==========Notofication=========*/
+.notification {
+  padding-top: 3.125vw;
+  padding-bottom: 3.125vw; }
+  .notification__inner {
+    display: flex; }
+  .notification__info {
+    width: 54.88vw;
+    padding-right: 10.2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between; }
+  .notification .title-main {
+    margin-bottom: 4.375vw; }
+  .notification__text {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.95vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    margin-bottom: 0.85vw; }
+  .notification__subtext {
+    font-family: "Aeonik Pro", sans-serif;
+    font-size: 1.4vw;
+    font-weight: 400;
+    color: #201d17;
+    line-height: 1.4;
+    margin-bottom: 0.85vw; }
+  .notification__photo {
+    width: 33.86vw;
+    padding-top: 2.73vw; }
+    .notification__photo img {
+      width: 100%; }
+
+/*==========/notofication=========*/
 /*===========Adaptive============*/
 @media (min-width: 2560px) {
   .container {
@@ -2834,7 +3837,9 @@ body.hidden {
   .scroll-link span {
     font-size: 16px; }
   .scroll-link img {
-    width: 10px; } }
+    width: 10px; }
+  .certificates .slider-arrow {
+    display: none; } }
 
 @media (max-width: 1024px) and (min-height: 600px) {
   .page-slider .slider-arrow {
@@ -2848,6 +3853,12 @@ body.hidden {
     margin-bottom: 40px; }
   .wrapper {
     padding-top: 100px; }
+  .notification__text {
+    font-size: 22px;
+    margin-bottom: 10px; }
+  .notification__subtext {
+    font-size: 18px;
+    margin-bottom: 70px; }
   .list li {
     font-size: 17px;
     padding-left: 36px;
@@ -2855,6 +3866,53 @@ body.hidden {
     .list li:before {
       width: 23px;
       top: 12px; }
+  .contact .title-main {
+    margin-bottom: 120px; }
+  .contact__inner {
+    display: block;
+    margin-bottom: 40px; }
+    .contact__inner.mb-70 {
+      margin-bottom: 10px; }
+  .contact__sideblock {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 20px; }
+  .contact__content {
+    width: 100%; }
+  .contact__description {
+    font-size: 22px; }
+    .contact__description_small {
+      font-size: 18px; }
+    .contact__description_min {
+      display: none; }
+  .contact__text p:first-child {
+    font-size: 18px;
+    margin-bottom: 60px; }
+  .contact__text p:nth-child(2) {
+    font-size: 22px;
+    margin-bottom: 10px; }
+  .contact__text p:nth-child(3) {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 60px; }
+  .contact__link {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 60px; }
+  .map {
+    margin-bottom: 40px; }
+  .social-icons a {
+    margin-right: 55px;
+    width: 25px;
+    height: 25px; }
+    .social-icons a:last-child {
+      margin-right: 0; }
+    .social-icons a svg {
+      width: 25px;
+      height: 25px; }
+    .social-icons a:nth-child(3) svg {
+      width: 30px;
+      height: 25px; }
   .articles__title {
     font-size: 32px; }
   .articles__box {
@@ -2862,6 +3920,8 @@ body.hidden {
     border-radius: 10px; }
   .articles__description {
     display: none; }
+  .photo-slider__slide img {
+    border-radius: 10px; }
   .guarantees__list li {
     padding-top: 5px;
     font-size: 20px;
@@ -2939,10 +3999,27 @@ body.hidden {
       width: 100%;
       margin-left: 0;
       margin-bottom: 10px; }
+  .service__nav {
+    width: 30%; }
+    .service__nav a {
+      font-size: 20px;
+      margin-bottom: 30px; }
+      .service__nav a:before {
+        width: 57px;
+        height: 14px;
+        left: -13px; }
   .service__box {
     padding: 20px;
     border-radius: 10px;
     min-height: auto; }
+    .service__box_big {
+      margin-bottom: 10px; }
+    .service__box-inner {
+      justify-content: space-between; }
+    .service__box-info {
+      width: 70%;
+      padding-right: 120px;
+      margin-right: 0; }
   .service__title {
     font-size: 34px;
     margin-bottom: 20px; }
@@ -2950,6 +4027,31 @@ body.hidden {
     font-size: 18px; }
   .service__price {
     font-size: 30px; }
+  .rebmw__text {
+    font-size: 22px;
+    padding-right: 0;
+    margin-bottom: 20px; }
+  .rebmw__subtext {
+    font-size: 18px;
+    padding-left: 0;
+    margin-bottom: 20px; }
+  .rebmw__founder {
+    padding-left: 0; }
+    .rebmw__founder-name {
+      font-size: 26px; }
+    .rebmw__founder-stat {
+      font-size: 16px; }
+    .rebmw__founder-sign img {
+      width: 140px; }
+  .rebmw__info {
+    width: 60%; }
+  .rebmw__certificates {
+    width: 50%; }
+  .certificates {
+    padding-left: 30px !important; }
+    .certificates__description {
+      margin-top: 20px;
+      font-size: 16px; }
   .btn {
     padding: 10px 10px 10px 20px;
     border-radius: 30px;
@@ -2993,8 +4095,10 @@ body.hidden {
     font-size: 22px; }
   .page-intro .scroll-link {
     margin-bottom: 0; }
-  .page-intro__photo img {
+  .page-intro__photo {
     border-radius: 10px; }
+    .page-intro__photo img {
+      border-radius: 0px; }
   .social {
     display: none; }
     .social__nav {
@@ -3115,12 +4219,42 @@ body.hidden {
     font-size: 20px;
     max-width: 100%;
     margin-left: 0; }
+  .cars_page .container_min {
+    max-width: 100%; }
   .cars__header {
     margin-bottom: 20px; }
   .cars__info {
     padding: 20px;
     border-radius: 10px;
     margin-left: 10px; }
+  .cars__status {
+    font-size: 20px;
+    padding: 6px 6px 2px 6px;
+    border-radius: 5px;
+    top: 20px;
+    left: 20px; }
+  .cars__row {
+    flex-direction: column-reverse;
+    align-items: flex-start; }
+    .cars__row .cars__price {
+      margin-right: 0; }
+    .cars__row .btn {
+      border: 1px dashed #201d17;
+      margin-bottom: 20px;
+      width: 298px;
+      padding: 8px 8px 8px 25px;
+      border-radius: 57px;
+      width: 298px;
+      margin-bottom: 20px; }
+      .cars__row .btn span:first-child {
+        font-size: 20px; }
+      .cars__row .btn span:nth-child(2) {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px; }
+      .cars__row .btn svg {
+        width: 15px;
+        height: 15px; }
   .cars__play {
     right: -5px; }
   .cars__photo img {
@@ -3198,6 +4332,21 @@ body.hidden {
     font-size: 18px; }
     .diagnostics_check .diagnostics__text p:last-child {
       font-size: 12px; }
+  .diagnostics_service .diagnostics__info {
+    padding: 3.125vw;
+    width: auto; }
+  .diagnostics_service .diagnostics__block:last-child .diagnostics__text {
+    margin-bottom: 30px; }
+    .diagnostics_service .diagnostics__block:last-child .diagnostics__text p:first-child {
+      font-size: 22px; }
+    .diagnostics_service .diagnostics__block:last-child .diagnostics__text p:last-child {
+      font-size: 16px; }
+  .diagnostics_service .diagnostics__block .diagnostics__text {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 0; }
+    .diagnostics_service .diagnostics__block .diagnostics__text p:last-child {
+      font-size: 18px; }
   .diagnostics__title {
     font-size: 36px; }
   .diagnostics__subtitle {
@@ -3291,6 +4440,10 @@ body.hidden {
 @media (max-width: 860px) {
   .container {
     max-width: 100vw; }
+  .photo-slider .slider-arrows {
+    display: none; }
+  .photo-slider img {
+    min-height: 350px; }
   .guarantees .title {
     font-size: 50px;
     margin-bottom: 20px; }
@@ -3374,14 +4527,56 @@ body.hidden {
     font-size: 40px; }
   .title-medium {
     font-size: 40px; }
+  .title-small {
+    font-size: 40px; }
   .mb-50 {
     margin-bottom: 20px; }
+  .page-notification {
+    padding-top: 0; }
+    .page-notification .header, .page-notification .footer {
+      display: none; }
+  .notification {
+    padding-top: 40px;
+    padding-bottom: 20px; }
+    .notification__inner {
+      display: block;
+      position: relative;
+      padding-bottom: 120px; }
+    .notification .btn {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1; }
+    .notification__info {
+      width: 100%;
+      padding-right: 0; }
+    .notification__photo {
+      width: 78.6vw;
+      margin: 0 auto; }
+  .rebmw .title {
+    margin-bottom: 20px; }
+  .rebmw__inner {
+    display: block; }
+  .rebmw__info {
+    width: 100%;
+    margin-bottom: 30px; }
+  .certificates {
+    width: 100%;
+    overflow: visible !important;
+    padding-left: 0 !important;
+    padding-rigt: 20px !important;
+    margin-right: -20px !important;
+    margin-left: 0 !important; }
   .guarantees__list {
     padding-left: 0;
     padding-right: 0; }
   .guarantees__description {
     max-width: 100%;
     margin-left: 10px; }
+  .page-intro__photo-wrapper {
+    height: 120%;
+    transform: translateY(-10%); }
   .info__title {
     font-size: 40px;
     margin-bottom: 20px; }
@@ -3407,6 +4602,8 @@ body.hidden {
   .cars {
     position: relative;
     padding-bottom: 90px; }
+    .cars_page {
+      padding-bottom: 0; }
     .cars__header .btn {
       position: absolute;
       bottom: 0;
@@ -3464,6 +4661,10 @@ body.hidden {
       font-size: 22px; }
       .diagnostics_check .diagnostics__text p:last-child {
         font-size: 18px; }
+  .diagnostics_service .diagnostics__photo {
+    width: 100%; }
+  .diagnostics_service .diagnostics__info {
+    padding: 0; }
   .diagnostics__inner {
     display: block; }
   .diagnostics__photo {
@@ -3519,7 +4720,19 @@ body.hidden {
       font-size: 40px;
       margin-bottom: 20px; }
     .call__description {
-      max-width: 250px; } }
+      max-width: 250px; }
+  .service__box-inner {
+    display: block; }
+  .service__box-info {
+    width: 100%;
+    padding-right: 0;
+    max-width: 100%; }
+  .service__box_big .service__price {
+    margin-top: 0; }
+  .service__nav {
+    width: 100%;
+    padding-left: 70px;
+    margin-bottom: 70px; } }
 
 @media (max-width: 540px) {
   .page-intro .title-main {
@@ -3666,7 +4879,19 @@ body.hidden {
   .offer .title br {
     display: block; } }
 
+@media (max-width: 390px) {
+  .rebmw__founder-name {
+    font-size: 22px; }
+  .rebmw__founder-sign {
+    width: 100px; }
+  .contact .title-medium {
+    font-size: 32px; }
+  .contact__description_small br {
+    display: none; } }
+
 @media (max-width: 360px) {
+  .title-main {
+    font-size: 42px; }
   .btn span:first-child {
     font-size: 18px; }
   .intro__title {

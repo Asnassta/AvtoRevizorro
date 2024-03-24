@@ -11,8 +11,16 @@ $grad-gray: linear-gradient(180.00deg, rgb(245, 245, 245),rgba(245, 245, 245, 0)
 $b-r: calc(100vw * 0.005859);
 $p-calc: 3.125vw;
 $fz-text: 1.015625vw;
+$fz-16: 0.625vw;
+$fz-18: 0.7vw;
 $fz-26: 1.015625vw;
 $fz-24: 0.9375vw;
+$fz-30: 1.17vw;
+$fz-34: 1.328vw;
+$fz-40: 1.5625vw;
+$fz-42: 1.64vw;
+$fz-50: 1.95vw;
+
 
 @mixin center-pos {
   position: absolute;
@@ -21,6 +29,7 @@ $fz-24: 0.9375vw;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+
 
 $maxWidth: 1920;
 @mixin adaptive-font($pcSize, $mobSize) {

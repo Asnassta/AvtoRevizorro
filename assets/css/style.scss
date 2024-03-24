@@ -56,6 +56,13 @@ body.hidden {
 .wrapper {
 	overflow: hidden;
 	padding-top: 6.09375vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 1 auto;
 }
 
 .container {
@@ -102,12 +109,36 @@ body.hidden {
 	line-height: 1.1;
 }
 
+.title-small {
+	font-family: $ff;
+	font-size: 2.73vw;
+	font-weight: 500;
+	color: $bl;
+	line-height: .82;
+}
+
+.mb-20 {
+	margin-bottom: 20px;
+}
+
 .mb-50 {
 	margin-bottom: 1.953125vw;
 }
 
 .mb-45 {
 	margin-bottom: 1.7578vw;
+}
+
+.mb-96 {
+	margin-bottom: 3.75vw;
+}
+
+.mb-130 {
+	margin-bottom: 5.078vw;
+}
+
+.mb-70	 {
+	margin-bottom: 2.73vw;
 }
 
 .brown {
@@ -205,6 +236,31 @@ body.hidden {
 			&:hover {
 				svg {
 					fill: $yellow;
+				}
+			}
+		}
+	}
+	&_transparent {
+		background: none;
+		border: 1px solid $bl;
+		padding: 0.625vw 0.625vw 0.625vw 1.40625vw;
+		span {
+			&:first-child {
+				color: $bl;
+			}
+		}
+		img {
+			width: 0.98vw;
+			min-width: 18px;
+		}
+		@media(min-width: 1181px) {
+			&:hover {
+				&:after {
+					visibility: visible;
+					width: calc(100% + 3.5px);
+					height: calc(100% + 3.5px);
+					transform: translate(0.820312vw, -50%);
+					right: 0.72vw;
 				}
 			}
 		}
@@ -369,7 +425,6 @@ body.hidden {
 .scroll-link {
 	display: inline-flex;
 	align-items: center;
-	cursor: pointer;
 	span {
 		font-family: $ff;
 		font-size: 0.9375vw;
@@ -382,6 +437,13 @@ body.hidden {
 		width: 0.625vw;
 	}
 }
+
+.tab_2, .tab_3,
+.tab_4, .tab_5, .tab_6,
+.tab_7, .tab_8, .tab_9 {
+	display: none;
+}
+
 
 /*==========Page-slider=========*/
 .page-slider {
@@ -518,6 +580,31 @@ body.hidden {
 	&__inner {
 		position: relative;
 	}
+	&__logo {
+		display: flex;
+		@include center-pos;
+		z-index: 10;
+		img {
+			&:first-child {
+				width: 20vw;
+				animation-delay: .3s;
+  				animation-duration: 3s;
+  				animation-fill-mode: both;
+  				animation-name: slideInLeft;
+  				transition: all .4s linear;
+  				margin-right: -2vw;
+			}
+			&:nth-child(2) {
+				width: 15vw;
+				animation-delay: .3s;
+  				animation-duration: 3s;
+  				animation-fill-mode: both;
+  				animation-name: slideInRight;
+  				transition: all .4s linear;
+  				margin-left: -2vw;
+			}
+		}
+	}
 	&__content {
 		position: absolute;
 		top: 0;
@@ -525,7 +612,7 @@ body.hidden {
 		z-index: 1;
 		width: 100%;
 		height: 100%;
-		animation-delay: 2s;
+		animation-delay: 2.5s;
   		animation-duration: 3s;
   		animation-fill-mode: both;
   		animation-name: slideUpGrow;
@@ -568,13 +655,13 @@ body.hidden {
 	  		animation-fill-mode: both;
 	  		animation-name: slideUp;
 	  		&:first-child {
-	  			animation-delay: 5s;
+	  			animation-delay: 5.5s;
 	  		}
 	  		&:nth-child(2) {
-	  			animation-delay: 5.1s;
+	  			animation-delay: 5.6s;
 	  		}
 	  		&:nth-child(3) {
-	  			animation-delay: 5.2s;
+	  			animation-delay: 5.7s;
 	  		}
 		}
 	}
@@ -587,7 +674,7 @@ body.hidden {
 		animation-duration: .8s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
-	  	animation-delay: 5.4s;
+	  	animation-delay: 5.8s;
 	  	margin-bottom: 10px;
 	}
 	&__description {
@@ -599,7 +686,7 @@ body.hidden {
 		animation-duration: .8s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
-	  	animation-delay: 5.4s;
+	  	animation-delay: 5.8s;
 	}
 	&__btn {
 		margin-left: auto;
@@ -613,7 +700,7 @@ body.hidden {
 		animation-duration: .8s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
-	  	animation-delay: 5s;
+	  	animation-delay: 5.5s;
 	  	&:before {
 	  		content: "";
 	  		width: 1.145833vw;
@@ -1194,6 +1281,14 @@ body.hidden {
 			}
 		}
 	}
+	&_page {
+		.cars__item {
+			margin-bottom: 1.95vw;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 	&__header {
 		display: flex;
 		align-items: center;
@@ -1207,17 +1302,53 @@ body.hidden {
 	&__photo {
 		width: calc(50% - 7.5px);
 		position: relative;
+		&__content {
+			border-radius: $b-r;
+			overflow: hidden;
+			height: 100%;
+		}
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			border-radius: $b-r;
+			transition: all .3s linear;
 		}
 		.btn-plus {
 			position: absolute;
 			left: 3.125vw;
 			bottom: 3.125vw;
 			z-index: 1;
+		}
+		&:hover {
+			img {
+				transform: scale(1.05);
+			}
+		}
+	}
+	&__status {
+		display: inline-block;
+		font-family: $ff;
+		font-size: 1.37vw;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1;
+		padding: 0.39vw 0.39vw 0.1vw 0.39vw;
+		border-radius: 0.39vw;
+		background: $grad-yellow;
+		border: 1px solid $bl;
+		position: absolute;
+		top: 1.17vw;
+		left: 1.17vw;
+		z-index: 1;
+		text-transform: uppercase;
+		&-sale {
+			background: $grad-bl;
+			color: $wh;
+			border-color: $wh;
+		}
+		&-none {
+			display: none;
 		}
 	}
 	&__info {
@@ -1332,6 +1463,18 @@ body.hidden {
 					fill: $yellow;
 				}
 			}
+		}
+	}
+	&__row {
+		display: flex;
+		align-items: center;
+		.cars__price {
+			margin-right: 3.125vw;
+			white-space: nowrap;
+		}
+		.btn {
+			min-width: auto;
+			flex: 1 1 auto;
 		}
 	}
 	&__price {
@@ -1491,6 +1634,42 @@ body.hidden {
 				font-size: 1.328vw;
 				&:last-child {
 					font-size: $fz-26;
+				}
+			}
+		}
+	}
+	&_service {
+		.diagnostics {
+			&__info {
+				padding: $p-calc;
+			}
+			&__photo {
+				width: 47.96vw;
+			}
+			&__block {
+				margin-bottom: 40px;
+				&:last-child {
+					margin-bottom: 0;
+					.diagnostics__text {
+						margin-bottom: 2.73vw;
+						p {
+							&:first-child {
+								font-size: 1.48vw;
+							}
+							&:last-child {
+								font-size: 0.9375vw;
+							}
+						}
+					}
+				}
+				.diagnostics__text {
+					font-size: 1.25vw;
+					margin-top: 0.66vw;
+					p {
+						&:last-child {
+							font-size: 1.25vw;
+						}
+					}
 				}
 			}
 		}
@@ -1739,10 +1918,10 @@ body.hidden {
 		&:before {
 			content: "";
 			width: 2000px;
-			height: 100%;
+			height: 110%;
 			background-color: $wh;
 			position: absolute;
-			top: 0;
+			top: -1px;
 			left: -1px;
 			z-index: 10;
 			transform: translateX(-100%);
@@ -1750,6 +1929,7 @@ body.hidden {
 	}
 	&__slide {
 		width: auto!important;
+		height: 28.32vw!important;
 		//height: 28.320312vw!important;
 		//transition: all .3s linear;
 		::selection {
@@ -1989,6 +2169,9 @@ body.hidden {
 		animation-duration: 0.8s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUpM;
+	  	&_center {
+	  		align-items: center;
+	  	}
 	}
 	&__description {
 		font-family: $ff;
@@ -2005,11 +2188,27 @@ body.hidden {
 		animation-duration: 0.8s;
 	  	animation-fill-mode: both;
 	  	animation-name: fadeIn;
+	  	overflow: hidden;
+	  	height: 37.11vw;
+	  	min-height: 385px;
+	  	border-radius: 0.585938vw;
+	  	position: relative;
+	  	&-wrapper {
+	  		height: 140%;
+	  		transform: translateY(-15%);
+	  		img {
+	  			height: 100%;
+	  		}
+	  		@media(min-width: 3000px) {
+	  			transform: translateY(-25%);
+	  		}
+	  	}
 		img {
 			width: 100%;
-			min-height: 385px;
 			object-fit: cover;
 			border-radius: 0.585938vw;
+			transition: all .2s linear;
+			position: absolute;
 		}
 	}
 }
@@ -2388,6 +2587,19 @@ body.hidden {
 		flex-direction: column;
 		justify-content: space-between;
 		min-height: 28.125vw;
+		&-inner {
+			display: flex;
+		}
+		&-info {
+			width: 32vw;
+			margin-right: 23.4vw;
+		}
+		&_big {
+			margin-bottom: 20px;
+			.service__price {
+				margin-top: -1.04vw;
+			}
+		}
 	}
 	&__title {
 		font-family: $ff;
@@ -2399,8 +2611,8 @@ body.hidden {
 	}
 	&__text {
 		font-family: $ff;
-		font-size: 0/9375vw;
-		flex-wrap: 400;
+		font-size: 0.9375vw;
+		font-weight: 400;
 		line-height: 1.6;
 		margin-bottom: 30px;
 		span {
@@ -2414,8 +2626,384 @@ body.hidden {
 		color: $bl;
 		line-height: 0.9;
 	}
+	&__nav {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		a {
+			font-family: $ff;
+			font-size: $fz-34;
+			font-weight: 400;
+			color: $brown;
+			line-height: 1.6;
+			margin-bottom: 2.93vw;
+			transition: all .3s linear;
+			position: relative;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			&:before {
+				content: "";
+				width: 3.32vw;
+				height: 0.82vw;
+				background: url("../images/arrow-long_bl.svg") center no-repeat;
+				background-size: contain;
+				position: absolute;
+				top: 50%;
+				left: -30px;
+				z-index: 1;
+				transform: translate(-130%, -50%);
+				opacity: 0;
+				transition: all .3s linear;
+			}
+			&:hover {
+				color: $bl;
+			}
+			&.active {
+				color: $bl;
+				&:before {
+					opacity: 1;
+					transform: translate(-100%, -50%);
+				}
+			}
+		}
+	}
 }
 /*===========/service=======*/
+
+/*===========Rebmw===========*/
+.rebmw {
+	.title {
+		margin-bottom: 3.125vw;
+	}
+	&__inner {
+		display: flex;
+	}
+	&__info {
+		width: 59vw;
+	}
+	&__text {
+		font-family: $ff;
+		font-size: $fz-42;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1.6;
+		margin-bottom: 4.6875vw;
+		padding-right: 11.52vw;
+		a {
+			color: $bl;
+			text-decoration: underline;
+			transition: all .3s linear;
+			&:hover {
+				//text-decoration: none;
+			}	
+		}
+	}
+	&__subtext {
+		font-family: $ff;
+		font-size: $fz-34;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1.6;
+		padding-left: 24.84vw;
+		margin-bottom: 4.6875vw;
+	}
+	&__founder {
+		padding-left: 8.594vw;
+		display: flex;
+		&-name {
+			font-family: $ff;
+			font-size: $fz-40;
+			font-weight: 500;
+			color: $bl;
+			line-height: 1.6;
+		}
+		&-stat {
+			font-family: $ff;
+			font-size: $fz-26;
+			font-weight: 400;
+			color: $bl;
+			line-height: 1.6;
+		}
+		&-sign {
+			img {
+				width: 11.25vw;
+			}
+		}
+	}
+}
+/*===========/rebmw===========*/
+
+/*==========Certificates==========*/
+.certificates {
+	width: 27vw;
+	margin-right: -9.57vw!important;
+	//margin-left: -3vw!important;
+	padding-left: 2vw!important;
+	.swiper-slide {
+		transition: all .2s linear;
+	}
+	.swiper-slide-duplicate-prev,
+	.swiper-slide-prev {
+		opacity: 0;
+	} 
+	&__photo {
+		img {
+			width: 100%;
+			box-shadow: 0px 39px 31.7px 0px rgba(0, 0, 0, 0.05);
+		}
+	}
+	&__description {
+		margin-top: 1.48vw;
+		font-family: $ff;
+		font-size: $fz-26;
+		font-weight: 300;
+		color: $bl;
+		line-height: 1.6;
+	}
+	.slider-arrow {
+		position: absolute;
+		top: 10.5vw;
+		left: 15.27vw;
+		z-index: 10;
+	}
+}
+/*==========/certificates==========*/
+
+/*===========Photo-slider=========*/
+.photo-slider {
+	&__inner {
+		overflow: visible!important;
+	}
+	&__slide {
+		img {
+			width: 100%;
+			object-fit: cover; 
+			border-radius: $b-r;
+		}
+	}
+	.slider-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+		&_prev {
+			left: 0;
+			transform: translate(-50%, -50%);
+		}
+		&_next {
+			right: 0;
+			transform: translate(50%, -50%);
+		}
+	}
+}
+/*===========photo-slider=========*/
+
+/*============Contact===========*/
+.contact {
+	.title-main {
+		margin-bottom: 8.28vw;
+	}
+	&__inner {
+		display: flex;
+	}
+	&__sideblock {
+		width: 32.58vw;
+		padding-right: 2.19vw;
+	}
+	&__content {
+		width: 48.05vw;
+	}
+	&__description {
+		font-family: $ff;
+		font-size: $fz-50;
+		font-weight: 400;
+		line-height: 1.4;
+		color: $bl;
+		&_small {
+			font-size: $fz-34;
+		}
+		&_min {
+			font-size: 1.25vw;
+			font-weight: 500;
+		}
+		span {
+			font-weight: 500;
+		}
+		img {
+			width: 0.66vw;
+			vertical-align: middle;
+			margin-left: 11px;
+		}
+	}
+	&__text {
+		font-family: $ff;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1.6;
+		margin-bottom: 5.078vw;
+		p {
+			&:first-child {
+				font-size: 1.25vw;
+				margin-bottom: 3.9vw;
+			}
+			&:nth-child(2) {
+				font-size: 1.48vw;
+				margin-bottom: 1.75vw;
+				line-height: 1.4;
+			}
+			&:nth-child(3) {
+				font-size: $fz-24;
+			}
+		}
+	}
+	&__link {
+		display: inline-block;
+		margin-top: 1.17vw;
+		font-family: $ff;
+		font-size: 1.4vw;;
+		font-weight: 500;
+		line-height: 1.4;
+		color: $bl;
+		margin-bottom: 4.8vw;
+	}
+}
+/*============/contact===========*/
+
+/*========Social-icons==========*/
+.social-icons {
+	display: flex;
+	align-items: center;
+	svg {
+		width: 1.25vw;
+		height: 1.25vw;
+		fill: $bl;
+		transition: all .3s linear;
+	}
+	a {
+		display: inline-block;
+		width: 1.25vw;
+		height: 1.25vw;
+		margin-right: 2.734375vw;
+		transition: all .3s linear;
+		&:nth-child(2) {
+			background-color: $bl;
+			border-radius: 50%;
+			svg {
+				fill: $wh;
+			}
+		}
+		&:nth-child(3) {
+			svg {
+				width: 1.484375vw;
+				height: 1.484375vw;
+			}
+			path {
+				transition: all .3s linear;
+				&:first-child {
+					fill: $bl;
+				}
+				&:nth-child(2) {
+					fill: $wh;
+				}
+			}
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+		@media(min-width: 1180px) {
+			&:hover {
+				&:first-child {
+					svg {
+						fill: $yellow;
+					}
+				}
+				&:nth-child(2) {
+					background-color: $yellow;
+				}
+				&:nth-child(3) {
+					path {
+						&:first-child {
+							fill: $yellow;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/*========/social-icons==========*/
+
+/*==============Map===========*/
+.map {
+	margin-bottom: 3.9vw;
+	&__content {
+		width: 100%;
+		height: 27.34vw;
+		min-height: 560px;
+		border-radius: $b-r;
+		//filter: grayscale(1);
+		overflow: hidden;
+	}
+}
+
+[class*="ymaps-2-1"][class*="-ground-pane"] {
+		-webkit-filter: grayscale(100%);
+}
+
+
+	.ymaps-2-1-79-map-copyrights-promo {
+		display: none;
+	}
+
+
+	.ymaps-2-1-79-gototaxi, .ymaps-2-1-79-gototech {
+		display: none;
+	}
+/*==============/map===========*/
+
+/*==========Notofication=========*/
+.notification {
+	padding-top: 3.125vw;
+	padding-bottom: 3.125vw;
+	&__inner {
+		display: flex;
+	}
+	&__info {
+		width: 54.88vw;
+		padding-right: 10.2vw;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+	.title-main {
+		margin-bottom: 4.375vw;
+	}
+	&__text {
+		font-family: $ff;
+		font-size: $fz-50;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1.4;
+		margin-bottom: 0.85vw;
+	}
+	&__subtext {
+		font-family: $ff;
+		font-size: 1.4vw;
+		font-weight: 400;
+		color: $bl;
+		line-height: 1.4;
+		margin-bottom: 0.85vw;
+	}
+	&__photo {
+		width: 33.86vw;
+		padding-top: 2.73vw;
+		img {
+			width: 100%;
+		}
+	}
+}
+/*==========/notofication=========*/
 
 
 /*===========Adaptive============*/
@@ -2456,6 +3044,11 @@ body.hidden {
 			width: 10px;
 		}
 	}
+	.certificates {
+		.slider-arrow {
+			display: none;
+		}
+	}
 }
 
 @media(max-width: 1024px) and (min-height: 600px) {
@@ -2479,6 +3072,17 @@ body.hidden {
 		padding-top: 100px;
 	}
 
+	.notification {
+		&__text {
+			font-size: 22px;
+			margin-bottom: 10px;
+		}
+		&__subtext {
+			font-size: 18px;
+			margin-bottom: 70px;
+		}
+	}
+
 	.list {
 		li {
 			font-size: 17px;
@@ -2487,6 +3091,83 @@ body.hidden {
 			&:before {
 				width: 23px;
 				top: 12px;
+			}
+		}
+	}
+
+	.contact {
+		.title-main {
+			margin-bottom: 120px;
+		}
+		&__inner {
+			display: block;
+			margin-bottom: 40px;
+			&.mb-70 {
+				margin-bottom: 10px;
+			}
+		}
+		&__sideblock {
+			width: 100%;
+			padding-right: 0;
+			margin-bottom: 20px;
+		}
+		&__content {
+			width: 100%;
+		}
+		&__description {
+			font-size: 22px;
+			&_small {
+				font-size: 18px;
+			}
+			&_min {
+				display: none;
+			}
+		}
+		&__text {
+			p {
+				&:first-child {
+					font-size: 18px;
+					margin-bottom: 60px;
+				}
+				&:nth-child(2) {
+					font-size: 22px;
+					margin-bottom: 10px;
+				}
+				&:nth-child(3) {
+					font-size: 16px;
+					font-weight: 300;
+					margin-bottom: 60px;
+				}
+			}
+		}
+		&__link {
+			font-size: 18px;
+			margin-top: 5px;
+			margin-bottom: 60px;
+		}
+	}
+
+	.map {
+		margin-bottom: 40px;
+	}
+
+	.social-icons {
+		a {
+			margin-right: 55px;
+			width: 25px;
+			height: 25px;
+			&:last-child {
+				margin-right: 0;
+			}
+			svg {
+				width: 25px;
+				height: 25px;
+			}
+			&:nth-child(3) {
+				svg {
+					width: 30px;
+					height: 25px;
+				}
 			}
 		}
 	}
@@ -2501,6 +3182,14 @@ body.hidden {
 		}
 		&__description {
 			display: none;
+		}
+	}
+
+	.photo-slider {
+		&__slide {
+			img {
+				border-radius: 10px;
+			}
 		}
 	}
 
@@ -2628,10 +3317,33 @@ body.hidden {
 				margin-bottom: 10px;
 			}
 		}
+		&__nav {
+			width: 30%;
+			a {
+				font-size: 20px;
+				margin-bottom: 30px;
+				&:before {
+					width: 57px;
+					height: 14px;
+					left: -13px;
+				}
+			}
+		}
 		&__box {
 			padding: 20px;
 			border-radius: 10px;
 			min-height: auto;
+			&_big {
+				margin-bottom: 10px;
+			}
+			&-inner {
+				justify-content: space-between;
+			}
+			&-info {
+				width: 70%;
+				padding-right: 120px;
+				margin-right: 0;
+			}
 		}
 		&__title {
 			font-size: 34px;
@@ -2642,6 +3354,47 @@ body.hidden {
 		}
 		&__price {
 			font-size: 30px;
+		}
+	}
+
+	.rebmw {
+		&__text {
+			font-size: 22px;
+			padding-right: 0;
+			margin-bottom: 20px;
+		}
+		&__subtext {
+			font-size: 18px;
+			padding-left: 0;
+			margin-bottom: 20px;
+		}
+		&__founder {
+			padding-left: 0;
+			&-name {
+				font-size: 26px;
+			}
+			&-stat {
+				font-size: 16px;
+			}
+			&-sign {
+				img {
+					width: 140px;
+				}
+			}
+		}
+		&__info {
+			width: 60%;
+		}
+		&__certificates {
+			width: 50%;
+		}
+	}
+
+	.certificates {
+		padding-left: 30px!important;
+		&__description {
+			margin-top: 20px;
+			font-size: 16px;
 		}
 	}
 
@@ -2717,8 +3470,9 @@ body.hidden {
 			margin-bottom: 0;
 		}
 		&__photo {
+			border-radius: 10px;
 			img {
-				border-radius: 10px;
+				border-radius: 0px;
 			}
 		}
 	}
@@ -2908,6 +3662,11 @@ body.hidden {
 	}
 
 	.cars {
+		&_page {
+			.container_min {
+				max-width: 100%;
+			}
+		}
 		&__header {
 			margin-bottom: 20px;
 		}
@@ -2915,6 +3674,43 @@ body.hidden {
 			padding: 20px;
 			border-radius: 10px;
 			margin-left: 10px;
+		}
+		&__status {
+			font-size: 20px;
+			padding: 6px 6px 2px 6px;
+			border-radius: 5px;
+			top: 20px;
+			left: 20px;
+		}
+		&__row {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			.cars__price {
+				margin-right: 0;
+			}
+			.btn {
+				border: 1px dashed $bl;
+				margin-bottom: 20px;
+				width: 298px;
+				padding: 8px 8px 8px 25px;
+				border-radius: 57px;
+				width: 298px;
+				margin-bottom: 20px;
+				span {
+					&:first-child {
+						font-size: 20px;
+					}
+					&:nth-child(2) {
+						width: 43px;
+						height: 43px;
+						flex: 0 0 43px;
+					}
+				}
+				svg {
+					width: 15px;
+					height: 15px;
+				}
+			}
 		}
 		&__play {
 			right: -5px;
@@ -3027,6 +3823,39 @@ body.hidden {
 					font-size: 18px;
 					&:last-child {
 						font-size: 12px;
+					}
+				}
+			}
+		}
+		&_service {
+			.diagnostics {
+				&__info {
+					padding: $p-calc;
+					width: auto;
+				}
+				&__block {
+					&:last-child {
+						.diagnostics__text {
+							margin-bottom: 30px;
+							p {
+								&:first-child {
+									font-size: 22px;
+								}
+								&:last-child {
+									font-size: 16px;
+								}
+							}
+						}
+					}
+					.diagnostics__text {
+						font-size: 18px;
+						margin-top: 10px;
+						margin-bottom: 0;
+						p {
+							&:last-child {
+								font-size: 18px;
+							}
+						}
 					}
 				}
 			}
@@ -3183,6 +4012,16 @@ body.hidden {
 		max-width: 100vw;
 	}
 
+	.photo-slider {
+		.slider-arrows {
+			display: none;
+		}
+		img {
+			min-height: 350px;
+		}
+	}
+
+
 	.guarantees {
 		.title {
 			font-size: 50px;
@@ -3321,8 +4160,65 @@ body.hidden {
 	.title-medium {
 		font-size: 40px;
 	}
+	.title-small {
+		font-size: 40px;
+	}
 	.mb-50 {
 		margin-bottom: 20px;
+	}
+
+	.page-notification {
+		padding-top: 0;
+		.header, .footer {
+			display: none;
+		}
+	}
+
+	.notification {
+		padding-top: 40px;
+		padding-bottom: 20px;
+		&__inner {
+			display: block;
+			position: relative;
+			padding-bottom: 120px;
+		}
+		.btn {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+		}
+		&__info {
+			width: 100%;
+			padding-right: 0;
+		}
+		&__photo {
+			width: 78.6vw;
+			margin: 0 auto;
+		}
+	}
+
+	.rebmw {
+		.title {
+			margin-bottom: 20px;
+		}
+		&__inner {
+			display: block;
+		}
+		&__info {
+			width: 100%;
+			margin-bottom: 30px;
+		}
+	}
+
+	.certificates {
+		width: 100%;
+		overflow: visible!important;
+		padding-left: 0!important;
+		padding-rigt: 20px!important;
+		margin-right: -20px!important;
+		margin-left: 0!important;
 	}
 
 	.guarantees {
@@ -3333,6 +4229,15 @@ body.hidden {
 		&__description {
 			max-width: 100%;
 			margin-left: 10px;
+		}
+	}
+
+	.page-intro {
+		&__photo {
+			&-wrapper {
+				height: 120%;
+				transform: translateY(-10%);
+			}
 		}
 	}
 
@@ -3379,6 +4284,9 @@ body.hidden {
 	.cars {
 		position: relative;
 		padding-bottom: 90px;
+		&_page {
+			padding-bottom: 0;
+		}
 		&__header {
 			.btn {
 				position: absolute;
@@ -3468,6 +4376,16 @@ body.hidden {
 				}
 			}
 		}
+		&_service {
+			.diagnostics {
+				&__photo {
+					width: 100%;
+				}
+				&__info {
+					padding: 0;
+				}
+			}
+		}
 		&__inner {
 			display: block;
 		}
@@ -3552,6 +4470,29 @@ body.hidden {
 		}
 		&__description {
 			max-width: 250px;
+		}
+	}
+
+	.service {
+		&__box {
+			&-inner {
+				display: block;
+			}
+			&-info {
+				width: 100%;
+				padding-right: 0;
+				max-width: 100%;
+			}
+			&_big {
+				.service__price {
+					margin-top: 0;
+				}
+			}
+		}
+		&__nav {
+			width: 100%;
+			padding-left: 70px;
+			margin-bottom: 70px;
 		}
 	}
 }
@@ -3782,7 +4723,35 @@ body.hidden {
 	}
 }
 
+@media(max-width: 390px) {
+	.rebmw {
+		&__founder {
+			&-name {
+				font-size: 22px;
+			}
+			&-sign {
+				width: 100px;
+			}
+		}
+	}
+	.contact {
+		.title-medium {
+			font-size: 32px;
+		}
+		&__description {
+			&_small {
+				br {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
 @media(max-width: 360px) {
+	.title-main {
+		font-size: 42px;
+	}
 	.btn {
 		span {
 			&:first-child {
