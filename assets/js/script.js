@@ -21,7 +21,7 @@ $(document).ready(function() {
   /*========/mobile-menu=========*/
 
   /*==========Header-link==========*/
-  $( ".header__link" ).hover(function() {
+  $( ".header__link" ).not('.active').hover(function() {
     $(".header__link").not(this).toggleClass('unactive');
   });
   /*==========/header-link==========*/
