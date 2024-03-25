@@ -166,7 +166,6 @@
     display: none;
     align-items: center; }
     .header__burger span {
-      margin-top: 6px;
       display: inline-block;
       margin-left: 11px;
       font-family: "Aeonik Pro", sans-serif;
@@ -180,7 +179,6 @@
     align-items: center;
     justify-content: flex-end; }
     .header__close span {
-      margin-top: -1px;
       display: inline-block;
       margin-left: 11px;
       font-family: "Aeonik Pro", sans-serif;
@@ -462,7 +460,8 @@
       .header__link:first-child {
         border-top: 1px solid rgba(255, 255, 255, 0.2); }
       .header__link.active {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff; }
     .header__buttons {
       flex: 1 1 auto;
       display: flex;

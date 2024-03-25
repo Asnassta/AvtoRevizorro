@@ -177,7 +177,7 @@
 		display: none;
 		align-items: center;
 		span {
-			margin-top: 6px;
+			//margin-top: 3px;
 			display: inline-block;
 			margin-left: 11px;
 			font-family: $ff;
@@ -193,7 +193,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		span {
-			margin-top: -1px;
+			//margin-top: -1px;
 			display: inline-block;
 			margin-left: 11px;
 			font-family: $ff;
@@ -562,6 +562,7 @@
 			}
 			&.active {
 				border-bottom: 1px solid rgba(255, 255, 255, .2);
+				color: $wh;
 			}
 		}
 		&__buttons {
