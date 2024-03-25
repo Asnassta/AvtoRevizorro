@@ -4824,12 +4824,12 @@ body.hidden {
     .intro__content {
       display: none; }
     .intro__inner {
-      background: url("../images/revizorro.png") top center no-repeat;
+      background: url("../images/revizorro.png") top center no-repeat, linear-gradient(180deg, rgba(0, 0, 0, 0) 75.359%, rgba(0, 0, 0, 0.72) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.47) 1.13%, rgba(0, 0, 0, 0) 34.689%), url(for_mob), #e1e3d6;
       background-size: cover;
       border-radius: 10px; }
     .intro__info {
       padding: 20px;
-      min-height: 700px; }
+      min-height: 760px; }
     .intro__logo {
       display: none; }
     .intro__title {

@@ -4560,13 +4560,13 @@ body.hidden {
 			display: none;
 		}
 		&__inner {
-			background: url("../images/revizorro.png") top center no-repeat;
+			background: url("../images/revizorro.png") top center no-repeat, linear-gradient(180.00deg, rgba(0, 0, 0, 0) 75.359%,rgba(0, 0, 0, 0.72) 100%),linear-gradient(180.00deg, rgba(0, 0, 0, 0.47) 1.13%,rgba(0, 0, 0, 0) 34.689%),url(for_mob),rgb(225, 227, 214);;
 			background-size: cover;
 			border-radius: 10px;
 		}
 		&__info {
 			padding: 20px;
-			min-height: 700px;
+			min-height: 760px;
 		}
 		&__logo {
 			display: none;
