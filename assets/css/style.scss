@@ -2961,14 +2961,14 @@ body.hidden {
 }
 
 
-	.ymaps-2-1-79-map-copyrights-promo {
-		display: none;
-	}
+.ymaps-2-1-79-map-copyrights-promo {
+	display: none;
+}
 
 
-	.ymaps-2-1-79-gototaxi, .ymaps-2-1-79-gototech {
-		display: none;
-	}
+.ymaps-2-1-79-gototaxi, .ymaps-2-1-79-gototech {
+	display: none;
+}
 /*==============/map===========*/
 
 /*==========Notofication=========*/
@@ -3726,6 +3726,9 @@ body.hidden {
 			right: -5px;
 		}
 		&__photo {
+			&__content {
+				border-radius: 10px;
+			}
 			img {
 				border-radius: 10px;
 			}

@@ -4316,6 +4316,8 @@ body.hidden {
         height: 15px; }
   .cars__play {
     right: -5px; }
+  .cars__photo__content {
+    border-radius: 10px; }
   .cars__photo img {
     border-radius: 10px; }
   .cars__title {
