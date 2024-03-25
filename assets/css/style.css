@@ -763,8 +763,8 @@
       position: relative; }
       .form-radiobox label span:first-child:after {
         content: "";
-        width: 0.586vw;
-        height: 0.41vw;
+        width: 0.75vw;
+        height: 0.65vw;
         background: url("../images/check.svg") center no-repeat;
         background-size: contain;
         position: absolute;
@@ -794,7 +794,7 @@
     width: 100%;
     background-color: #ffffff;
     border-radius: 0.39vw;
-    padding: 1.4vw 3vw 1.2vw 1.72vw;
+    padding: 1.3vw 3vw 1.3vw 1.72vw;
     border: 1px solid #201d17;
     font-family: "Aeonik Pro", sans-serif;
     font-size: 1.17vw;
@@ -828,7 +828,7 @@
     line-height: 1.4;
     transition: all .3s linear;
     position: absolute;
-    top: 1.4vw;
+    top: 1.3vw;
     left: 1.72vw;
     z-index: 1; }
     .form-input label span {
@@ -1034,8 +1034,8 @@
     position: relative; }
     .checkbox label span:first-child:after {
       content: "";
-      width: 0.586vw;
-      height: 0.41vw;
+      width: 0.75vw;
+      height: 0.65vw;
       background: url("../images/check.svg") center no-repeat;
       background-size: contain;
       position: absolute;
@@ -1155,7 +1155,7 @@
   display: block;
   background-color: #ffffff;
   border-radius: 0.39vw;
-  padding: 1.4vw 1.72vw 1.25vw 1.72vw;
+  padding: 1.3vw 1.72vw 1.3vw 1.72vw;
   border: 1px solid #201d17;
   font-family: "Aeonik Pro", sans-serif;
   font-size: 1.17vw;
@@ -1215,7 +1215,7 @@
     flex-direction: column; }
   .selectbox__label {
     position: absolute;
-    top: 1.4vw;
+    top: 1.3vw;
     left: 1.72vw;
     font-family: "Aeonik Pro", sans-serif;
     font-size: 1.17vw;
@@ -1259,8 +1259,8 @@
     height: 24px;
     border-radius: 5px; }
     .form-radiobox label span:first-child:after {
-      width: 12px;
-      height: 8.5px; }
+      width: 14px;
+      height: 11px; }
   .form-radiobox label span:nth-child(2) {
     font-size: 18px; }
   .form__item {
@@ -1273,7 +1273,7 @@
     .form__inner .form__item_half {
       width: calc(50% - 10px); }
   .form-input input, .form-input textarea {
-    padding: 22px 48px 18px 24px;
+    padding: 20px 48px 20px 24px;
     border-radius: 10px;
     font-size: 20px; }
     .form-input input.active + label, .form-input textarea.active + label {
@@ -1308,7 +1308,7 @@
     left: 24px;
     top: 5px; }
   .form-radio {
-    padding: 22px 24px 13.5px 24px;
+    padding: 20.3px 24px 13.5px 24px;
     border-radius: 10px; }
     .form-radio__name {
       font-size: 20px;
@@ -1351,8 +1351,8 @@
     flex: 0 0 24px;
     border-radius: 5px; }
     .checkbox label span:first-child:after {
-      width: 12px;
-      height: 8.5px; }
+      width: 14px;
+      height: 11px; }
   .checkbox label span:nth-child(2) {
     font-size: 16px; }
   .jq-selectbox:before {
@@ -4798,6 +4798,8 @@ body.hidden {
 @media (max-width: 540px) {
   .page-intro .title-main {
     margin-bottom: 175px; }
+  .page-intro_cars .page-intro__description br {
+    display: none; }
   .page-intro__row {
     display: block;
     margin-bottom: 20px; }

@@ -24,8 +24,8 @@
 					position: relative;
 					&:after {
 						content: "";
-						width: 0.586vw;
-						height: 0.41vw;
+						width: 0.75vw;
+						height: 0.65vw;
 						background: url("../images/check.svg") center no-repeat;
 						background-size: contain;
 						@include center-pos;
@@ -68,7 +68,7 @@
 			width: 100%;
 			background-color: $wh;
 			border-radius: 0.39vw;
-			padding: 1.4vw 3vw 1.2vw 1.72vw;
+			padding: 1.3vw 3vw 1.3vw 1.72vw;
 			border: 1px solid $bl;
 			font-family: $ff;
 			font-size: $fz-30;
@@ -109,7 +109,7 @@
 			line-height: 1.4;
 			transition: all .3s linear;
 			position: absolute;
-			top: 1.4vw;
+			top: 1.3vw;
   			left: 1.72vw;
   			z-index: 1;
   			span {
@@ -362,8 +362,8 @@
 				position: relative;
 				&:after {
 					content: "";
-					width: 0.586vw;
-					height: 0.41vw;
+					width: 0.75vw;
+					height: 0.65vw;
 					background: url("../images/check.svg") center no-repeat;
 					background-size: contain;
 					@include center-pos;
@@ -512,7 +512,7 @@
 	display: block;
 	background-color: $wh;
 	border-radius: 0.39vw;
-	padding: 1.4vw 1.72vw 1.25vw 1.72vw;
+	padding: 1.3vw 1.72vw 1.3vw 1.72vw;
 	border: 1px solid $bl;
 	font-family: $ff;
 	font-size: $fz-30;
@@ -585,7 +585,7 @@
 	}
 	&__label {
 		position: absolute;
-		top: 1.4vw;
+		top: 1.3vw;
 		left: 1.72vw;
 		font-family: $ff;
 		font-size: $fz-30;
@@ -648,8 +648,8 @@
 						height: 24px;
 						border-radius: 5px;
 						&:after {
-							width: 12px;
-							height: 8.5px;
+							width: 14px;
+							height: 11px;
 						}
 					}
 					&:nth-child(2) {
@@ -675,7 +675,7 @@
 		}
 		&-input {
 			input, textarea {
-				padding: 22px 48px 18px 24px;
+				padding: 20px 48px 20px 24px;
 				border-radius: 10px;
 				font-size: 20px;
 				&.active + label {
@@ -730,7 +730,7 @@
 			}
 		}
 		&-radio {
-			padding: 22px 24px 13.5px 24px;
+			padding: 20.3px 24px 13.5px 24px;
 			border-radius: 10px;
 			&__name {
 				font-size: 20px;
@@ -794,8 +794,8 @@
 					flex: 0 0 24px;
 					border-radius: 5px;
 					&:after {
-						width: 12px;
-						height: 8.5px;
+						width: 14px;
+						height: 11px;
 					}
 				}
 				&:nth-child(2) {

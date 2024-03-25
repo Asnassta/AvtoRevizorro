@@ -4516,6 +4516,13 @@ body.hidden {
 		.title-main {
 			margin-bottom: 175px;
 		}
+		&_cars {
+			.page-intro__description {
+				br {
+					display: none;
+				}
+			}
+		}
 		&__row {
 			display: block;
 			margin-bottom: 20px;
