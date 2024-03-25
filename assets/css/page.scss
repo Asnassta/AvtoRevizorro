@@ -41,8 +41,16 @@
 		width: 14.140625vw;
 		min-width: 200px;
 		margin-right: 7.8125vw;
-		img {
+		svg {
 			max-width: 100%;
+			height: 1.17vw;
+			fill: $bl;
+			transition: all .3s linear;
+		}
+		&:hover {
+			svg {
+				fill: $brown;
+			}
 		}
 	}
 	&__menu {
@@ -61,17 +69,45 @@
 		border-radius: 4.882812vw;
 		padding: 1.09375vw 2vw;
 		text-align: center;
-		transition: all .4s linear;
-		@media(min-width: 1081px) {
-			&:hover {
-				//border: 1px solid $bl;
+		transition: all .3s linear;
+		span {
+			display: inline-block;
+			position: relative;
+			margin-bottom: -0.25vw;
+			&:after {
+				content: "";
+				width: 0;
+				height: 2px;
+				background-color: $bl;
+				position: absolute;
+				bottom: -8px;
+				left: 0;
+				z-index: 1;
+				transition: all .3s linear;
 			}
 		}
-		&.active {
-			border: 1px solid $bl;
+		@media(min-width: 1081px) {
+			&:hover {
+				span {
+					&:after {
+						width: 100%;
+					}
+				}
+			}
 		}
 		&.unactive {
 			color: rgb(163, 163, 163);
+		}
+		&.active {
+			border: 1px solid $bl;
+			color: $bl;
+			&:hover {
+				span {
+					&:after {
+						width: 0;
+					}
+				}
+			}
 		}
 	}
 	&__btn {
@@ -94,7 +130,7 @@
 				display: block;
 				transition: all .4s linear;
 				padding: 0px 4.0625vw;
-				margin-bottom: -2px;
+				margin-bottom: -0.25vw;
 			}
 			&:nth-child(2) {
 				display: flex;
@@ -141,6 +177,7 @@
 		display: none;
 		align-items: center;
 		span {
+			margin-top: 6px;
 			display: inline-block;
 			margin-left: 11px;
 			font-family: $ff;
@@ -156,6 +193,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		span {
+			margin-top: -1px;
 			display: inline-block;
 			margin-left: 11px;
 			font-family: $ff;
@@ -368,6 +406,7 @@
 		position: relative;
 		span {
 			&:first-child {
+				margin-bottom: -0.25vw;
 				display: block;
 				transition: all .4s linear;
 				padding: 0px 4.0625vw;
@@ -452,6 +491,9 @@
 		&__logo {
 			min-width: auto;
 			width: 168px;
+			svg {
+				height: 14px;
+			}
 		}
 		&__link {
 			padding: 10px 16px;
@@ -528,7 +570,7 @@
 			flex-direction: column;
 			align-items: stretch;
 			justify-content: flex-end;
-			padding-bottom: 120px;
+			padding-bottom: 60px;
 			margin-top: 50px;
 		}
 		&__btn {

@@ -67,8 +67,13 @@
     width: 14.140625vw;
     min-width: 200px;
     margin-right: 7.8125vw; }
-    .header__logo img {
-      max-width: 100%; }
+    .header__logo svg {
+      max-width: 100%;
+      height: 1.17vw;
+      fill: #201d17;
+      transition: all .3s linear; }
+    .header__logo:hover svg {
+      fill: #594f3c; }
   .header__menu {
     flex: 1 1 auto; }
   .header__nav {
@@ -83,11 +88,31 @@
     border-radius: 4.882812vw;
     padding: 1.09375vw 2vw;
     text-align: center;
-    transition: all .4s linear; }
-    .header__link.active {
-      border: 1px solid #201d17; }
+    transition: all .3s linear; }
+    .header__link span {
+      display: inline-block;
+      position: relative;
+      margin-bottom: -0.25vw; }
+      .header__link span:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: #201d17;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        z-index: 1;
+        transition: all .3s linear; }
+    @media (min-width: 1081px) {
+      .header__link:hover span:after {
+        width: 100%; } }
     .header__link.unactive {
       color: #a3a3a3; }
+    .header__link.active {
+      border: 1px solid #201d17;
+      color: #201d17; }
+      .header__link.active:hover span:after {
+        width: 0; }
   .header__btn {
     margin-left: 3.5vw;
     border-radius: 2.5vw;
@@ -107,7 +132,7 @@
       display: block;
       transition: all .4s linear;
       padding: 0px 4.0625vw;
-      margin-bottom: -2px; }
+      margin-bottom: -0.25vw; }
     .header__btn span:nth-child(2) {
       display: flex;
       align-items: center;
@@ -141,6 +166,7 @@
     display: none;
     align-items: center; }
     .header__burger span {
+      margin-top: 6px;
       display: inline-block;
       margin-left: 11px;
       font-family: "Aeonik Pro", sans-serif;
@@ -154,6 +180,7 @@
     align-items: center;
     justify-content: flex-end; }
     .header__close span {
+      margin-top: -1px;
       display: inline-block;
       margin-left: 11px;
       font-family: "Aeonik Pro", sans-serif;
@@ -315,6 +342,7 @@
     transition: all .4s linear;
     position: relative; }
     .footer__btn span:first-child {
+      margin-bottom: -0.25vw;
       display: block;
       transition: all .4s linear;
       padding: 0px 4.0625vw; }
@@ -377,6 +405,8 @@
   .header__logo {
     min-width: auto;
     width: 168px; }
+    .header__logo svg {
+      height: 14px; }
   .header__link {
     padding: 10px 16px; } }
 
@@ -439,7 +469,7 @@
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-end;
-      padding-bottom: 120px;
+      padding-bottom: 60px;
       margin-top: 50px; }
     .header__btn {
       display: flex;
@@ -628,6 +658,16 @@
     transform: translateY(8px); }
   100% {
     transform: translateY(0); } }
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(0); }
+  25% {
+    transform: translateY(3px); }
+  50% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-3px); } }
 
 @keyframes fadeIn {
   0% {
@@ -1543,6 +1583,7 @@ body.hidden {
     position: relative;
     z-index: 3; }
     .btn span:first-child {
+      margin-bottom: -0.25vw;
       font-family: "Aeonik Pro", sans-serif;
       font-size: 1.01563vw;
       font-weight: 500;
@@ -1742,7 +1783,11 @@ body.hidden {
     line-height: 1.4;
     margin-right: 1.171875vw; }
   .scroll-link img {
-    width: 0.625vw; }
+    width: 0.625vw;
+    /*animation-duration: 1s;
+	  	animation-fill-mode: both;
+	  	animation-name: slideDownUp;*/
+    animation: slideDown 1.2s infinite linear; }
 
 .tab_2, .tab_3,
 .tab_4, .tab_5, .tab_6,
@@ -4748,6 +4793,7 @@ body.hidden {
     min-width: auto;
     width: 100%; }
     .btn span:first-child {
+      margin-bottom: -7px;
       font-size: 22px; }
     .btn span:nth-child(2) {
       width: 43px;
@@ -4767,6 +4813,8 @@ body.hidden {
     .intro__info {
       padding: 20px;
       min-height: 700px; }
+    .intro__logo {
+      display: none; }
     .intro__title {
       font-size: 50px; }
       .intro__title span {
