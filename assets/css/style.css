@@ -2991,8 +2991,7 @@ body.hidden {
       z-index: 10;
       transform: translateX(-100%); }
   .social__slide {
-    width: auto !important;
-    height: 28.32vw !important; }
+    width: auto !important; }
     .social__slide ::selection {
       background: rgba(255, 255, 255, 0); }
   .social .swiper-slide-next .social__item {

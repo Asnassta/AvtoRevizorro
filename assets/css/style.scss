@@ -1918,8 +1918,6 @@ body.hidden {
 	}
 	&__slider {
 		overflow: visible!important;
-		//height: 28.320312vw;
-		//transition: all .3s linear;
 		&:before {
 			content: "";
 			width: 2000px;
@@ -1934,7 +1932,7 @@ body.hidden {
 	}
 	&__slide {
 		width: auto!important;
-		height: 28.32vw!important;
+		//height: 28.32vw!important;
 		//height: 28.320312vw!important;
 		//transition: all .3s linear;
 		::selection {
