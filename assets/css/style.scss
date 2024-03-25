@@ -270,6 +270,7 @@ body.hidden {
 
 .btn-download {
 	display: flex;
+	padding-right: 0.625vw;
 	&__text {
 		margin-right: 3.9062vw;
 		span {
@@ -4618,6 +4619,11 @@ body.hidden {
 			width: 100%;
 			margin-left: 0;
 			padding-left: 25px;
+		}
+		&__row {
+			.btn_transparent {
+				width: 100%;
+			}
 		}
 	}
 
