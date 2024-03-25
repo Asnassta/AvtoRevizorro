@@ -184,8 +184,12 @@
 			font-size: 20px;
 			font-weight: 500;
 			color: $bl;
-			line-height: 1.4;
+			line-height: 1;
 			text-transform: uppercase;
+			vertical-align: middle;
+		}
+		img {
+			vertical-align: middle;
 		}
 	}
 	&__close {
@@ -202,9 +206,11 @@
 			color: $wh;
 			line-height: 1.4;
 			text-transform: uppercase;
+			vertical-align: middle;
 		}
 		img {
 			margin-bottom: 4px;
+			vertical-align: middle;
 		}
 	}
 }
@@ -506,7 +512,7 @@
 		backdrop-filter: blur(10px);
 		padding: 30px 0;
 		&__burger {
-			display: inline-flex;
+			display: inline-block;
 		}
 		&__logo {
 			margin-right: 10px;
