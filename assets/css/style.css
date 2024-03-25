@@ -4791,7 +4791,6 @@ body.hidden {
     min-width: auto;
     width: 100%; }
     .btn span:first-child {
-      margin-bottom: -7px;
       font-size: 22px; }
     .btn span:nth-child(2) {
       width: 43px;
