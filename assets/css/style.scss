@@ -2466,9 +2466,13 @@ body.hidden {
 		}
 		&:hover {
 			@media(min-width: 1025px) {
-				//border-color: rgba(255, 255, 255, 0);
 				.articles__description {
 					opacity: 1;
+				}
+				.articles__arrow {
+					svg {
+						transform: translateX(0);
+					}
 				}
 				&:before {
 					width: 100%;
@@ -2495,13 +2499,15 @@ body.hidden {
 		justify-content: space-between;
 	}
 	&__arrow {
+		overflow: hidden;
 		svg {
 			fill: none;
 			stroke: $bl;
-			width: 8.007812vw;
+			width: 16vw;
 			height: 1.992188vw;
 			transition: all .3s linear;
-			transform: rotate(180deg);
+			transform: translateX(-50%);
+			transition: all .3s linear;
 		}
 	}
 	&__description {

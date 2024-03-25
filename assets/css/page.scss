@@ -186,10 +186,12 @@
 			line-height: 1;
 			text-transform: uppercase;
 			vertical-align: middle;
+			height: 20px;
 		}
 		img {
-			margin-top: -3px;
+			height: 14px;
 			vertical-align: middle;
+			margin-top: -4px;
 		}
 	}
 	&__close {
@@ -203,11 +205,13 @@
 			font-size: 20px;
 			font-weight: 500;
 			color: $wh;
-			line-height: 1.4;
+			line-height: 1;
 			text-transform: uppercase;
 			vertical-align: middle;
+			height: 20px;
 		}
 		img {
+			height: 15.6px;
 			margin-bottom: 3px;
 			vertical-align: middle;
 		}
@@ -522,7 +526,6 @@
 			margin-bottom: 40px;
 		}
 		&__menu {
-			//display: none;
 			transform: translateY(-105%);
 			background-color: $bl;
 			width: 100%;
@@ -567,7 +570,7 @@
 			}
 			&.active {
 				border-bottom: 1px solid rgba(255, 255, 255, .2);
-				color: $wh;
+				color: #989696;
 			}
 		}
 		&__buttons {
