@@ -177,7 +177,6 @@
 		display: none;
 		align-items: center;
 		span {
-			//margin-top: 3px;
 			display: inline-block;
 			margin-left: 11px;
 			font-family: $ff;
@@ -189,6 +188,7 @@
 			vertical-align: middle;
 		}
 		img {
+			margin-top: -3px;
 			vertical-align: middle;
 		}
 	}
@@ -197,7 +197,6 @@
 		align-items: center;
 		justify-content: flex-end;
 		span {
-			//margin-top: -1px;
 			display: inline-block;
 			margin-left: 11px;
 			font-family: $ff;
@@ -209,7 +208,7 @@
 			vertical-align: middle;
 		}
 		img {
-			margin-bottom: 4px;
+			margin-bottom: 3px;
 			vertical-align: middle;
 		}
 	}

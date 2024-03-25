@@ -176,6 +176,7 @@
       text-transform: uppercase;
       vertical-align: middle; }
     .header__burger img {
+      margin-top: -3px;
       vertical-align: middle; }
   .header__close {
     display: none;
@@ -192,7 +193,7 @@
       text-transform: uppercase;
       vertical-align: middle; }
     .header__close img {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       vertical-align: middle; }
 
 /*================/header=============*/
