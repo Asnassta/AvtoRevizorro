@@ -10,8 +10,8 @@
 	background-color: rgba(255, 255, 255, .8);
 	backdrop-filter: blur(34px);
 	transition: all .4s linear;
-	animation-delay: .3s;
-	animation-duration: 0.8s;
+	animation-delay: 1s;
+	animation-duration: 1s;
 	animation-fill-mode: both;
 	animation-name: fadeIn;
 	&.fixed {

@@ -40,8 +40,8 @@
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(34px);
   transition: all .4s linear;
-  animation-delay: .3s;
-  animation-duration: 0.8s;
+  animation-delay: 1s;
+  animation-duration: 1s;
   animation-fill-mode: both;
   animation-name: fadeIn; }
   .header.fixed {
@@ -1794,9 +1794,6 @@ body.hidden {
     margin-right: 1.171875vw; }
   .scroll-link img {
     width: 0.625vw;
-    /*animation-duration: 1s;
-	  	animation-fill-mode: both;
-	  	animation-name: slideDownUp;*/
     animation: slideDown 1.2s infinite linear; }
 
 .tab_2, .tab_3,
@@ -1915,16 +1912,16 @@ body.hidden {
     z-index: 10; }
     .intro__logo img:first-child {
       width: 20vw;
-      animation-delay: .3s;
-      animation-duration: 3s;
+      animation-delay: 1s;
+      animation-duration: 4s;
       animation-fill-mode: both;
       animation-name: slideInLeft;
       transition: all .4s linear;
       margin-right: -2vw; }
     .intro__logo img:nth-child(2) {
       width: 15vw;
-      animation-delay: .3s;
-      animation-duration: 3s;
+      animation-delay: 1s;
+      animation-duration: 4s;
       animation-fill-mode: both;
       animation-name: slideInRight;
       transition: all .4s linear;
@@ -1936,8 +1933,8 @@ body.hidden {
     z-index: 1;
     width: 100%;
     height: 100%;
-    animation-delay: 2.5s;
-    animation-duration: 3s;
+    animation-delay: 4.5s;
+    animation-duration: 3.5s;
     animation-fill-mode: both;
     animation-name: slideUpGrow; }
     .intro__content:after {
@@ -1971,25 +1968,25 @@ body.hidden {
     color: #ffffff; }
     .intro__title span {
       display: block;
-      animation-duration: 0.8s;
+      animation-duration: 1s;
       animation-fill-mode: both;
       animation-name: slideUp; }
       .intro__title span:first-child {
-        animation-delay: 5.5s; }
+        animation-delay: 8s; }
       .intro__title span:nth-child(2) {
-        animation-delay: 5.6s; }
+        animation-delay: 8.2s; }
       .intro__title span:nth-child(3) {
-        animation-delay: 5.7s; }
+        animation-delay: 8.4s; }
   .intro__subtitle {
     font-size: 3.3125vw;
     font-family: "Aeonik Pro", sans-serif;
     font-weight: 400;
     color: #ffffff;
     line-height: 1.1;
-    animation-duration: .8s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 5.8s;
+    animation-delay: 8.6s;
     margin-bottom: 10px; }
   .intro__description {
     font-family: "Aeonik Pro", sans-serif;
@@ -1997,10 +1994,10 @@ body.hidden {
     font-weight: 400;
     line-height: 1.4;
     color: #ffffff;
-    animation-duration: .8s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 5.8s; }
+    animation-delay: 8.6s; }
   .intro__btn {
     margin-left: auto;
     position: absolute;
@@ -2010,10 +2007,10 @@ body.hidden {
     background-color: #ffffff;
     padding: 1.5625vw 0 0 1.5625vw;
     border-radius: 3.645833vw 0 0 0;
-    animation-duration: .8s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 5.5s; }
+    animation-delay: 8.6s; }
     .intro__btn:before {
       content: "";
       width: 1.145833vw;
@@ -3177,8 +3174,8 @@ body.hidden {
   padding-top: 3.046875vw; }
   .page-intro .title-main {
     margin-bottom: 6.328125vw;
-    animation-delay: .3s;
-    animation-duration: 0.8s;
+    animation-delay: 1s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUpM; }
   .page-intro__row {
@@ -3186,8 +3183,8 @@ body.hidden {
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 5.078125vw;
-    animation-delay: .3s;
-    animation-duration: 0.8s;
+    animation-delay: 1s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUpM; }
     .page-intro__row_center {
@@ -3201,8 +3198,8 @@ body.hidden {
   .page-intro .scroll-link {
     margin-bottom: 0.3125vw; }
   .page-intro__photo {
-    animation-delay: .3s;
-    animation-duration: 0.8s;
+    animation-delay: 1s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: fadeIn;
     overflow: hidden;
