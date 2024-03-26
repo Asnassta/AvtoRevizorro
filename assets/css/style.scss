@@ -583,7 +583,7 @@ body.hidden {
 	&__inner {
 		position: relative;
 	}
-	&__logo {
+	/*&__logo {
 		display: flex;
 		@include center-pos;
 		z-index: 10;
@@ -607,7 +607,7 @@ body.hidden {
   				margin-left: -2vw;
 			}
 		}
-	}
+	}*/
 	&__content {
 		position: absolute;
 		top: 0;
@@ -615,10 +615,12 @@ body.hidden {
 		z-index: 1;
 		width: 100%;
 		height: 100%;
-		animation-delay: 4.5s;
-  		animation-duration: 3.5s;
+		animation-delay: 1.5s;
+  		animation-duration: 4s;
   		animation-fill-mode: both;
   		animation-name: slideUpGrow;
+  		background-color: $bl;
+  		border-radius: $b-r;
   		&:after {
   			content: "";
   			background: rgba(17, 23, 28, 0.6);
@@ -635,6 +637,10 @@ body.hidden {
   			height: 100%;
   			object-fit: cover;
   			border-radius: $b-r;
+  			animation-delay: 7.5s;
+  			animation-duration: 1s;
+  			animation-fill-mode: both;
+  			animation-name: visibleIn;
   		}
 	}
 	&__info {
@@ -658,13 +664,13 @@ body.hidden {
 	  		animation-fill-mode: both;
 	  		animation-name: slideUp;
 	  		&:first-child {
-	  			animation-delay: 8s;
+	  			animation-delay: 6s;
 	  		}
 	  		&:nth-child(2) {
-	  			animation-delay: 8.2s;
+	  			animation-delay: 6.2s;
 	  		}
 	  		&:nth-child(3) {
-	  			animation-delay: 8.4s;
+	  			animation-delay: 6.4s;
 	  		}
 		}
 	}
@@ -677,7 +683,7 @@ body.hidden {
 		animation-duration: 1s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
-	  	animation-delay: 8.6s;
+	  	animation-delay: 6.6s;
 	  	margin-bottom: 10px;
 	}
 	&__description {
@@ -689,7 +695,7 @@ body.hidden {
 		animation-duration: 1s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
-	  	animation-delay: 8.6s;
+	  	animation-delay: 6.6s;
 	}
 	&__btn {
 		margin-left: auto;
@@ -703,7 +709,7 @@ body.hidden {
 		animation-duration: 1s;
 	  	animation-fill-mode: both;
 	  	animation-name: slideUp;
-	  	animation-delay: 8.6s;
+	  	animation-delay: 6.6s;
 	  	&:before {
 	  		content: "";
 	  		width: 1.145833vw;
@@ -3077,6 +3083,15 @@ body.hidden {
 
 	.wrapper {
 		padding-top: 100px;
+	}
+
+	.intro {
+		&__content {
+			border-radius: 10px;
+			* {
+				border-radius: 10px;
+			}
+		}
 	}
 
 	.notification {

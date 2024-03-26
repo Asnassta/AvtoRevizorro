@@ -710,6 +710,12 @@
   100% {
     transform: translateX(60vw); } }
 
+@keyframes visibleIn {
+  0% {
+    display: none; }
+  100% {
+    display: block; } }
+
 /*============Popup==========*/
 .popup {
   width: 100%;
@@ -1899,33 +1905,34 @@ body.hidden {
 /*============Intro=============*/
 .intro {
   margin-bottom: 7.8125vw;
-  overflow: hidden; }
+  overflow: hidden;
+  /*&__logo {
+		display: flex;
+		@include center-pos;
+		z-index: 10;
+		img {
+			&:first-child {
+				width: 20vw;
+				animation-delay: 1s;
+  				animation-duration: 4s;
+  				animation-fill-mode: both;
+  				animation-name: slideInLeft;
+  				transition: all .4s linear;
+  				margin-right: -2vw;
+			}
+			&:nth-child(2) {
+				width: 15vw;
+				animation-delay: 1s;
+  				animation-duration: 4s;
+  				animation-fill-mode: both;
+  				animation-name: slideInRight;
+  				transition: all .4s linear;
+  				margin-left: -2vw;
+			}
+		}
+	}*/ }
   .intro__inner {
     position: relative; }
-  .intro__logo {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    z-index: 10; }
-    .intro__logo img:first-child {
-      width: 20vw;
-      animation-delay: 1s;
-      animation-duration: 4s;
-      animation-fill-mode: both;
-      animation-name: slideInLeft;
-      transition: all .4s linear;
-      margin-right: -2vw; }
-    .intro__logo img:nth-child(2) {
-      width: 15vw;
-      animation-delay: 1s;
-      animation-duration: 4s;
-      animation-fill-mode: both;
-      animation-name: slideInRight;
-      transition: all .4s linear;
-      margin-left: -2vw; }
   .intro__content {
     position: absolute;
     top: 0;
@@ -1933,10 +1940,12 @@ body.hidden {
     z-index: 1;
     width: 100%;
     height: 100%;
-    animation-delay: 4.5s;
-    animation-duration: 3.5s;
+    animation-delay: 1.5s;
+    animation-duration: 4s;
     animation-fill-mode: both;
-    animation-name: slideUpGrow; }
+    animation-name: slideUpGrow;
+    background-color: #201d17;
+    border-radius: calc(100vw * 0.005859); }
     .intro__content:after {
       content: "";
       background: rgba(17, 23, 28, 0.6);
@@ -1951,7 +1960,11 @@ body.hidden {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: calc(100vw * 0.005859); }
+      border-radius: calc(100vw * 0.005859);
+      animation-delay: 7.5s;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-name: visibleIn; }
   .intro__info {
     position: relative;
     z-index: 3;
@@ -1972,11 +1985,11 @@ body.hidden {
       animation-fill-mode: both;
       animation-name: slideUp; }
       .intro__title span:first-child {
-        animation-delay: 8s; }
+        animation-delay: 6s; }
       .intro__title span:nth-child(2) {
-        animation-delay: 8.2s; }
+        animation-delay: 6.2s; }
       .intro__title span:nth-child(3) {
-        animation-delay: 8.4s; }
+        animation-delay: 6.4s; }
   .intro__subtitle {
     font-size: 3.3125vw;
     font-family: "Aeonik Pro", sans-serif;
@@ -1986,7 +1999,7 @@ body.hidden {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 8.6s;
+    animation-delay: 6.6s;
     margin-bottom: 10px; }
   .intro__description {
     font-family: "Aeonik Pro", sans-serif;
@@ -1997,7 +2010,7 @@ body.hidden {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 8.6s; }
+    animation-delay: 6.6s; }
   .intro__btn {
     margin-left: auto;
     position: absolute;
@@ -2010,7 +2023,7 @@ body.hidden {
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-name: slideUp;
-    animation-delay: 8.6s; }
+    animation-delay: 6.6s; }
     .intro__btn:before {
       content: "";
       width: 1.145833vw;
@@ -3909,6 +3922,10 @@ body.hidden {
     margin-bottom: 40px; }
   .wrapper {
     padding-top: 100px; }
+  .intro__content {
+    border-radius: 10px; }
+    .intro__content * {
+      border-radius: 10px; }
   .notification__text {
     font-size: 22px;
     margin-bottom: 10px; }
