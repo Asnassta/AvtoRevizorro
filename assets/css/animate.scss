@@ -129,10 +129,10 @@
 
 @keyframes visibleIn {
   0% {
-    display: none;
+    visibility: hidden;
   }
 
   100% {
-    display: block;
+    visibility: visible;
   }
 }

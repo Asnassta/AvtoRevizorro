@@ -640,7 +640,8 @@ body.hidden {
   			animation-delay: 7.5s;
   			animation-duration: 1s;
   			animation-fill-mode: both;
-  			animation-name: visibleIn;
+  			animation-name: fadeIn;
+  			transition: all .4s linear;
   		}
 	}
 	&__info {

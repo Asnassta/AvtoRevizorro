@@ -712,9 +712,9 @@
 
 @keyframes visibleIn {
   0% {
-    display: none; }
+    visibility: hidden; }
   100% {
-    display: block; } }
+    visibility: visible; } }
 
 /*============Popup==========*/
 .popup {
@@ -1964,7 +1964,8 @@ body.hidden {
       animation-delay: 7.5s;
       animation-duration: 1s;
       animation-fill-mode: both;
-      animation-name: visibleIn; }
+      animation-name: fadeIn;
+      transition: all .4s linear; }
   .intro__info {
     position: relative;
     z-index: 3;
